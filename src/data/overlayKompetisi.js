@@ -1,10 +1,10 @@
 const overlayKompetisi = {
-    Inggris: ["Premier League.png" ],
-    Eropa: ["UEFL.png", "UECL.png", "UCL.png"],
-    France: ["League1.png"],
-    Spanyol: ["Laliga.png"],
-    Italia: ["Seria A.png" ],
-    Jerman: ["Bundesliga.png"],
+    inggris: ["Premier League.png" ],
+    eropa: ["UEFL.png", "UECL.png", "UCL.png"],
+    france: ["League1.png"],
+    spanyol: ["Laliga.png"],
+    italia: ["Seria A.png" ],
+    jerman: ["Bundesliga.png"],
 };
 
 export default overlayKompetisi;
