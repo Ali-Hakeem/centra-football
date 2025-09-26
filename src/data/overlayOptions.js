@@ -1,0 +1,10 @@
+const overlayOptions = {
+    Inggris: ["AFC Bournemouth.png", "Arsenal FC.png", "Aston Villa.png", "Brentford FC.png", "Brighton & Hove Albion.png", "Burnley FC.png", "Chelsea FC.png", "Crystal Palace.png", "Everton FC", "Fulham FC.png", "Leeds United.png", "Liverpool FC.png", "Manchester City.png", "Manchester United.png", "Newcastle United.png", "Nottingham Forest.png", "Sunderland AFC.png", "Tottenham Hotspur.png", "West Ham United.png", "Wolverhampton Wanderers.png"],
+    Spanyol: ["Athletic Bilbao.png", "Atlético de Madrid.png", "CA Osasuna.png", "Celta de Vigo.png", "Deportivo Alavés.png", "Elche CF.png", "FC Barcelona.png", "Getafe CF.png", "Girona FC.png", "Levante UD.png", "Rayo Vallecano.png", "RCD Espanyol Barcelona.png", "RCD Mallorca.png", "Real Betis Balompié.png", "Real Madrid.png", "Real Oviedo.png", "Real Sociedad.png", "Sevilla FC.png", "Valencia CF.png", "Villarreal CF.png"],
+    Italia : ["AC Milan.png", "ACF Fiorentina.png", "AS Roma.png", "Atalanta BC.png", "Bologna FC 1909.png", "Cagliari Calcio.png", "Como 1907.png", "Genoa CFC.png", "Hellas Verona.png", "Inter Milan.png", "Juventus FC.png", "Parma Calcio 1913.png", "Pisa Sporting Club.png", "SS Lazio.png", "SSC Napoli.png", "Torino FC.png", "Udinese Calcio.png", "US Cremonese.png", "US Lecce.png", "US Sassuolo.png"],
+    Jerman : ["1.FC Heidenheim 1846.png", "1.FC Köln.png", "1.FC Union Berlin.png", "1.FSV Mainz 05.png", "Bayer 04 Leverkusen.png", "Bayern Munich.png", "Borussia Dortmund.png", "Borussia Mönchengladbach.png", "Eintracht Frankfurt.png", "FC Augsburg.png", "FC St. Pauli.png", "Hamburger SV.png", "RB Leipzig.png", "SC Freiburg.png", "SV Werder Bremen.png", "TSG 1899 Hoffenheim.png", "VfB Stuttgart.png", "VfL Wolfsburg.png"],
+    France : ["AJ Auxerre.png", "Angers SCO.png", "AS Monaco.png", "FC Lorient.png", "FC Metz.png", "FC Nantes.png", "FC Toulouse.png", "Le Havre AC.png", "LOSC Lille.png", "OGC Nice.png", "Olympique Lyon.png", "Olympique Marseille.png", "Paris FC.png", "Paris Saint-Germain.png", "RC Lens.png", "RC Strasbourg Alsace.png", "Stade Brestois 29.png", "Stade Rennais FC.png"],
+  };
+  
+  export default overlayOptions;
+  
