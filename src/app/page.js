@@ -37,6 +37,13 @@ export default function MenuPage() {
         >
           Statistik Editor
         </button>
+
+        <button
+          onClick={() => router.push("/klasmen")}
+          className=" font-bold px-8 py-4 rounded-lg "
+        >
+          Klasmen
+        </button>
       </div>
     </main>
   );

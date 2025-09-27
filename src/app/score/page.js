@@ -200,6 +200,7 @@ export default function Home() {
                 <option value="⚽︎">⚽ Goal</option>
                 <option value="🟥">🟥 Red Card</option>
                 <option value="🟨">🟨 Yellow Card</option>
+                <option value="❌">❌ Gagal Penalti</option>
               </select>
 
               {/* Tombol Hapus */}
@@ -253,6 +254,8 @@ export default function Home() {
                   <option value="">Pilih</option>
                   <option value="⚽︎">⚽ Goal</option>
                   <option value="🟥">🟥 Red Card</option>
+                  <option value="🟨">🟨 Yellow Card</option>
+                  <option value="❌">❌ Gagal Penalti</option>
                 </select>
                 {/* Tombol Hapus */}
                 {rightEvents.length > 1 && (
