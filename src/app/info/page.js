@@ -3,10 +3,10 @@
 import { useState } from "react";
 import html2canvas from "html2canvas";
 
-export default function QuotesEditor() {
+export default function InfoEditor() {
   const [baseImage, setBaseImage] = useState(null);
   const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
+  const [quote2, setQuote2] = useState("");
 
   const handleFile = (e) => {
     if (e.target.files?.[0]) setBaseImage(URL.createObjectURL(e.target.files[0]));
@@ -27,7 +27,7 @@ export default function QuotesEditor() {
 
   return (
     <main className="flex flex-col items-center justify-start min-h-screen p-6 bg-[#ff6508] text-white">
-      <h1 className="text-3xl font-bold mb-6">Quotes Editor</h1>
+      <h1 className="text-3xl font-bold mb-6">Info Editor</h1>
 
       {/* Upload Gambar */}
       <div className="mb-4 w-full max-w-xl">
@@ -46,15 +46,14 @@ export default function QuotesEditor() {
         />
       </div>
 
-      {/* Input Author */}
+      {/* Input Quotes */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Author</p>
-        <input
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          className="border rounded px-3 py-2 w-full text-black"
-          placeholder="Nama penulis..."
+        <p className="mb-2 font-semibold">Quotes2</p>
+        <textarea
+          value={quote2}
+          onChange={(e) => setQuote2(e.target.value)}
+          className="border rounded px-3 py-2 w-full h-32 text-black"
+          placeholder="Tulis quotes di sini..."
         />
       </div>
 
@@ -66,7 +65,7 @@ export default function QuotesEditor() {
       </button>
 
       {/* Preview */}
-        {baseImage && quote && (
+        {baseImage && quote && quote2 && (
         <div
             id="quote-preview"
             className="relative mt-8 w-[1080px] h-[1080px] border bg-white text-black overflow-hidden"
@@ -83,14 +82,17 @@ export default function QuotesEditor() {
             style={{ background: "linear-gradient(to top, rgba(0,0,0,1.2), transparent)" }}
             />
 
-            <div className="absolute bottom-0 left-0 w-full p-6 text-white flex flex-col items-center mb-20">
+            <div className="absolute bottom-0 left-0 w-full px-10 text-white flex flex-col items-center mb-40">
                 <p
                     className="text-center italic"
-                    style={{ fontSize: "55px", lineHeight: "1.1" }}
+                    style={{ fontSize: "110px", lineHeight: "0.9" }}
                 >
-                    <span className="text-[#ff6508]">" </span>{quote}<span className="text-[#ff6508]"> "</span>
+                  <span className="text-[#ff6508]">{quote}</span> {quote2}
                 </p>
-                {author && <p className="mt-10 font-semibold" style={{ fontSize: "30px", lineHeight: "1.1" }}>- {author}</p>}
+
+              <div className="absolute justify-center items-center left-120 top-85 mt-5" style={{ fontSize: "22px"}}>
+              <p>centrafootball</p>
+              </div>
             </div>
         </div>
       )}

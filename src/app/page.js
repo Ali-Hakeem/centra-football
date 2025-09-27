@@ -23,6 +23,13 @@ export default function MenuPage() {
         >
           Quotes Editor
         </button>
+
+        <button
+          onClick={() => router.push("/info")}
+          className="bg-white text-[#ff6508] font-bold px-8 py-4 rounded-lg hover:bg-gray-200"
+        >
+          Info Editor
+        </button>
       </div>
     </main>
   );

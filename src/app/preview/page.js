@@ -59,7 +59,7 @@ export default function Preview() {
         <div className="absolute flex justify-center items-center gap-12 left-10">
           <img
             src="/assets/cf.png"
-            className="w-[90px] h-[90px] object-contain"
+            className="w-[120px] h-[120px] object-contain"
             alt="CF Logo"
           />
         </div>
@@ -84,7 +84,7 @@ export default function Preview() {
 
         {/* Wrapper Center */}
         <div className="absolute bottom-40 left-0 w-full flex flex-col items-center text-white font-bold">
-          <div className="bg-white border-8 p-1 rounded">
+          <div className="bg-white border-8 p-1">
             {overlayImage3 && (
               <img
                 src={overlayImage3}
