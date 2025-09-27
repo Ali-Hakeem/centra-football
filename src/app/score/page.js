@@ -199,6 +199,7 @@ export default function Home() {
                 <option value="">Pilih</option>
                 <option value="⚽︎">⚽ Goal</option>
                 <option value="🟥">🟥 Red Card</option>
+                <option value="🟨">🟨 Yellow Card</option>
               </select>
 
               {/* Tombol Hapus */}
