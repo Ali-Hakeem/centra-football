@@ -138,7 +138,7 @@ export default function StatistikEditor() {
           <div className="absolute top-[600px] left-1/2 transform -translate-x-1/2 text-center">
             <p className="font-bold text-[#fff]" style={{ fontSize: "55px"}}>{name}</p>
             <div>
-              <span><p className="px-4 text-[#ff6508] font-semibold" style={{ fontSize: "35px"}}>{musim}</p></span>
+              <span><p className="px-4 text-[#fff] font-semibold" style={{ fontSize: "35px"}}>{musim}</p></span>
             </div>
           </div>
 
