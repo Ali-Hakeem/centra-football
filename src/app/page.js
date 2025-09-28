@@ -12,6 +12,7 @@ export default function MenuPage() {
     { name: "Statistik Editor", path: "/statistik" },
     { name: "Klasmen", path: "/klasmen" },
     { name: "Individual Stats", path: "/individual" },
+    { name: "Squad", path: "/squad" },
   ];
 
   return (
