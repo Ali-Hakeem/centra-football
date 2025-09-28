@@ -210,7 +210,7 @@ export default function RekorPage() {
                     <img
                       src={p.logo}
                       alt="klub"
-                      className="w-[35px] h-[35px] object-contain mb-[-32px]"
+                      className="w-[30px] h-[35px] object-contain mb-[-32px]"
                     />
                   )}
                   <span>{p.nama}</span>
