@@ -85,7 +85,7 @@ export default function SquadPage() {
 
       {/* Upload Background */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Upload Background</p>
+        <p className="mb-2 font-semibold">Upload Background Resolusi 3:4</p>
         <input
           type="file"
           accept="image/*"
@@ -173,7 +173,7 @@ export default function SquadPage() {
       {baseImage && (
         <div
           id="squad-preview"
-          className="relative mt-8 w-[1080px] h-[1080px] flex flex-col items-start p-10 overflow-hidden"
+          className="relative mt-8 w-[1080px] h-[1350px] flex flex-col items-start p-10 overflow-hidden"
           style={{ backgroundColor: "#000" }}
         >
           {/* Background */}
