@@ -44,6 +44,13 @@ export default function MenuPage() {
         >
           Klasmen
         </button>
+
+        <button
+          onClick={() => router.push("/individual")}
+          className=" font-bold px-8 py-4 rounded-lg bg-cyan-950"
+        >
+          Individual Stats
+        </button>
       </div>
     </main>
   );
