@@ -190,19 +190,19 @@ export default function SquadPage() {
           </div>
 
           {/* Text */}
-          <div className="relative top-0 mt-[-75px] z-10 w-full">
+          <div className="relative top-0 mt-[-65px] z-10 w-full">
             <h1 className="text-[100px] font-bold mb-[-25px]">{title}</h1>
             <h2 className="text-[45px] mb-4">{subtitle}</h2>
 
             {Object.entries(groupedPlayers).map(([posisi, list]) =>
               list.length > 0 ? (
                 <div key={posisi} className="mb-4">
-                  <p className="text-[25px] font-bold text-[#ff6508]">
+                  <p className="text-[35px] font-bold text-[#ff6508]">
                     {posisi}
                   </p>
                   <ul className="space-y-1">
                     {list.map((p, i) => (
-                      <li key={i} className="text-[24px] mb-[-8px]">
+                      <li key={i} className="text-[38px] mb-[-6px]">
                         <span className="font-bold">{p.nama}</span>{" "}
                         <span style={{ color: "#d1d5db" }}>({p.klub})</span>
                       </li>
