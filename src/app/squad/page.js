@@ -197,12 +197,12 @@ export default function SquadPage() {
             {Object.entries(groupedPlayers).map(([posisi, list]) =>
               list.length > 0 ? (
                 <div key={posisi} className="mb-4">
-                  <p className="text-[35px] font-bold text-[#ff6508]">
+                  <p className="text-[30px] font-bold text-[#ff6508]">
                     {posisi}
                   </p>
                   <ul className="space-y-1">
                     {list.map((p, i) => (
-                      <li key={i} className="text-[38px] mb-[-6px]">
+                      <li key={i} className="text-[29px] mb-[-8px]">
                         <span className="font-bold">{p.nama}</span>{" "}
                         <span style={{ color: "#d1d5db" }}>({p.klub})</span>
                       </li>
