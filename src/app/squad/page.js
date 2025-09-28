@@ -31,9 +31,7 @@ export default function SquadPage() {
   );
 
   // ✅ players hanya satu array, looping input
-  const [players, setPlayers] = usePersistedState("players", [
-    { nama: "", klub: "", posisi: "Goalkeeper" },
-  ]);
+  const [players, setPlayers] = usePersistedState("players", []);
 
   const handleBaseUpload = (e) => {
     if (e.target.files?.[0]) {
@@ -119,55 +117,50 @@ export default function SquadPage() {
       </div>
 
       {/* Input Players */}
-      <div className="mb-6 w-full max-w-xl">
-        <p className="mb-2">Pemain</p>
-        {players.map((player, index) => (
-          <div key={index} className="flex flex-col gap-2 mb-4 border-b pb-4">
-            <input
-              type="text"
-              placeholder="Nama Pemain"
-              value={player.nama || ""}
-              onChange={(e) =>
-                handlePlayerChange(index, "nama", e.target.value)
-              }
-              className="border rounded px-3 py-2 text-black"
-            />
-            <input
-              type="text"
-              placeholder="Klub"
-              value={player.klub || ""}
-              onChange={(e) =>
-                handlePlayerChange(index, "klub", e.target.value)
-              }
-              className="border rounded px-3 py-2 text-black"
-            />
-            <select
-              value={player.posisi || "Goalkeeper"}
-              onChange={(e) =>
-                handlePlayerChange(index, "posisi", e.target.value)
-              }
-              className="border rounded px-3 py-2 text-black"
-            >
-              <option value="Goalkeeper">Goalkeeper</option>
-              <option value="Defender">Defender</option>
-              <option value="Midfielder">Midfielder</option>
-              <option value="Forward">Forward</option>
-            </select>
-            <button
-              onClick={() => removePlayer(index)}
-              className="bg-red-600 text-white px-3 py-1 rounded mt-1 self-start"
-            >
-              Hapus
-            </button>
-          </div>
-        ))}
-        <button
-          onClick={addPlayer}
-          className="bg-green-600 text-white px-4 py-2 rounded"
-        >
-          + Tambah Pemain
-        </button>
-      </div>
+<div className="mb-6 w-full max-w-xl">
+  <p className="mb-2">Pemain</p>
+  {(players.length > 0 ? players : [{ nama: "", klub: "", posisi: "Goalkeeper" }]).map((player, index) => (
+    <div key={index} className="flex flex-col gap-2 mb-4 border-b pb-4">
+      <input
+        type="text"
+        placeholder="Nama Pemain"
+        value={player.nama || ""}
+        onChange={(e) => handlePlayerChange(index, "nama", e.target.value)}
+        className="border rounded px-3 py-2 text-black"
+      />
+      <input
+        type="text"
+        placeholder="Klub"
+        value={player.klub || ""}
+        onChange={(e) => handlePlayerChange(index, "klub", e.target.value)}
+        className="border rounded px-3 py-2 text-black"
+      />
+      <select
+        value={player.posisi || "Goalkeeper"}
+        onChange={(e) => handlePlayerChange(index, "posisi", e.target.value)}
+        className="border rounded px-3 py-2 text-black"
+      >
+        <option value="Goalkeeper">Goalkeeper</option>
+        <option value="Defender">Defender</option>
+        <option value="Midfielder">Midfielder</option>
+        <option value="Forward">Forward</option>
+      </select>
+      <button
+        onClick={() => removePlayer(index)}
+        className="bg-red-600 text-white px-3 py-1 rounded mt-1 self-start"
+      >
+        Hapus
+      </button>
+    </div>
+  ))}
+  <button
+    onClick={addPlayer}
+    className="bg-green-600 text-white px-4 py-2 rounded"
+  >
+    + Tambah Pemain
+  </button>
+</div>
+
 
       <button
         onClick={handleDownload}
