@@ -1,17 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import html2canvas from "html2canvas";
 import overlayOptions from "@/data/overlayOptions";
 
-export default function RekorPage() {
-  const [baseImage, setBaseImage] = useState(null);
-  const [liga, setLiga] = useState("");
-  const [kategori, setKategori] = useState("");
-  const [season, setSeason] = useState("");
+// ✅ Hook untuk simpan ke localStorage
+function usePersistedState(key, defaultValue) {
+  const [state, setState] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(key);
+      return saved ? JSON.parse(saved) : defaultValue;
+    }
+    return defaultValue;
+  });
 
-  // ✅ langsung 5 pemain fix
-  const [players, setPlayers] = useState([
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, setState];
+}
+
+export default function RekorPage() {
+  const [baseImage, setBaseImage] = usePersistedState("baseImage", null);
+  const [liga, setLiga] = usePersistedState("liga", "");
+  const [kategori, setKategori] = usePersistedState("kategori", "");
+  const [season, setSeason] = usePersistedState("season", "");
+  const [players, setPlayers] = usePersistedState("players", [
     { nama: "", jumlah: "", logo: null },
     { nama: "", jumlah: "", logo: null },
     { nama: "", jumlah: "", logo: null },
@@ -20,7 +35,10 @@ export default function RekorPage() {
   ]);
 
   const handleBaseUpload = (e) => {
-    if (e.target.files?.[0]) setBaseImage(URL.createObjectURL(e.target.files[0]));
+    if (e.target.files?.[0]) {
+      const url = URL.createObjectURL(e.target.files[0]);
+      setBaseImage(url);
+    }
   };
 
   const handlePlayerChange = (index, field, value) => {
@@ -103,7 +121,7 @@ export default function RekorPage() {
         />
       </div>
 
-      {/* Input 5 pemain fix */}
+      {/* Input 5 pemain */}
       <div className="mb-6 w-full max-w-xl">
         <p className="mb-2">5 Pemain</p>
         {players.map((player, index) => (
