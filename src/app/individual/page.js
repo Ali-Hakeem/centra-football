@@ -22,11 +22,11 @@ function usePersistedState(key, defaultValue) {
 }
 
 export default function RekorPage() {
-  const [baseImage, setBaseImage] = usePersistedState("baseImage", null);
-  const [liga, setLiga] = usePersistedState("liga", "");
-  const [kategori, setKategori] = usePersistedState("kategori", "");
-  const [season, setSeason] = usePersistedState("season", "");
-  const [players, setPlayers] = usePersistedState("players", [
+  const [baseImage, setBaseImage] = usePersistedState("rekor_baseImage", null);
+  const [liga, setLiga] = usePersistedState("rekor_liga", "");
+  const [kategori, setKategori] = usePersistedState("rekor_kategori", "");
+  const [season, setSeason] = usePersistedState("rekor_season", "");
+  const [players, setPlayers] = usePersistedState("rekor_players", [
     { nama: "", jumlah: "", logo: null },
     { nama: "", jumlah: "", logo: null },
     { nama: "", jumlah: "", logo: null },
@@ -207,14 +207,14 @@ export default function RekorPage() {
 
           {/* Judul */}
           <div className="relative z-10 text-left mb-5 w-full max-w-[850px]">
-            <p className="text-[80px] font-bold uppercase mt-[-35px]">
+            <p className="text-[90px] font-bold uppercase mt-[-35px]">
               {kategori} {liga}
             </p>
-            <p className="text-[50px] mt-[-20px] text-[#ff6508]">{season}</p>
+            <p className="text-[60px] mt-[-22px] text-[#ff6508]">{season}</p>
           </div>
 
           {/* Daftar Pemain */}
-          <div className="relative z-10 top-140 flex flex-col gap-6 w-full max-w-[850px]">
+          <div className="relative z-10 top-160 flex flex-col gap-6 w-full max-w-[850px]">
             {players.map((p, i) => (
               <div
                 key={i}
@@ -228,7 +228,7 @@ export default function RekorPage() {
                     <img
                       src={p.logo}
                       alt="klub"
-                      className="w-[25px] h-[35px] object-contain mb-[-32px]"
+                      className="w-[27px] h-[35px] object-contain mb-[-32px]"
                     />
                   )}
                   <span>{p.nama}</span>
