@@ -69,7 +69,7 @@ export default function QuotesEditor() {
         {baseImage && quote && (
         <div
             id="quote-preview"
-            className="relative mt-8 w-[1080px] h-[1080px] border bg-white text-black overflow-hidden"
+            className="relative mt-8 w-[1080px] h-[1350px] border bg-white text-black overflow-hidden"
         >
             <img src={baseImage} alt="Base" className="absolute inset-0 w-full h-full object-cover" />
 
@@ -83,7 +83,7 @@ export default function QuotesEditor() {
             style={{ background: "linear-gradient(to top, rgba(0,0,0,1.2), transparent)" }}
             />
 
-            <div className="absolute bottom-0 left-0 w-full p-6 text-white flex flex-col items-center mb-20">
+            <div className="absolute bottom-0 left-0 w-full p-6 text-white flex flex-col items-center mb-70">
                 <p
                     className="text-center italic"
                     style={{ fontSize: "55px", lineHeight: "1.1" }}

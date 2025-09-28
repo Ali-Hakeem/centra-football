@@ -31,7 +31,7 @@ export default function InfoEditor() {
 
       {/* Upload Gambar */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Upload Gambar</p>
+        <p className="mb-2 font-semibold">Upload Gambar Rasio 3:4</p>
         <input type="file" accept="image/*" onChange={handleFile} className="border rounded px-3 py-2 w-full text-black"/>
       </div>
 
@@ -68,7 +68,7 @@ export default function InfoEditor() {
         {baseImage && quote && quote2 && (
         <div
             id="quote-preview"
-            className="relative mt-8 w-[1080px] h-[1080px] border bg-white text-black overflow-hidden"
+            className="relative mt-8 w-[1080px] h-[1350px] border bg-white text-black overflow-hidden"
         >
             <img src={baseImage} alt="Base" className="absolute inset-0 w-full h-full object-cover" />
 
@@ -82,7 +82,7 @@ export default function InfoEditor() {
             style={{ background: "linear-gradient(to top, rgba(0,0,0,1.2), transparent)" }}
             />
 
-            <div className="absolute bottom-0 left-0 w-full px-10 text-white flex flex-col items-center mb-40">
+            <div className="absolute bottom-0 left-0 w-full px-10 text-white flex flex-col items-center mb-65">
                 <p
                     className="text-center italic"
                     style={{ fontSize: "110px", lineHeight: "0.9" }}

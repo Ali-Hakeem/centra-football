@@ -75,7 +75,7 @@ export default function RekorPage() {
 
       {/* Upload Background */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Upload Gambar Background</p>
+        <p className="mb-2 font-semibold">Upload Gambar Background Rasio 3:4</p>
         <input
           type="file"
           accept="image/*"
@@ -184,7 +184,7 @@ export default function RekorPage() {
       {baseImage && (
         <div
           id="rekor-preview"
-          className="relative mt-8 w-[1080px] h-[1080px] flex flex-col items-center p-10 overflow-hidden"
+          className="relative mt-8 w-[1080px] h-[1350px] flex flex-col items-center p-10 overflow-hidden"
           style={{ backgroundColor: "#000000", color: "#ffffff" }}
         >
           {/* Background */}
@@ -214,7 +214,7 @@ export default function RekorPage() {
           </div>
 
           {/* Daftar Pemain */}
-          <div className="relative z-10 top-100 flex flex-col gap-6 w-full max-w-[850px]">
+          <div className="relative z-10 top-140 flex flex-col gap-6 w-full max-w-[850px]">
             {players.map((p, i) => (
               <div
                 key={i}
