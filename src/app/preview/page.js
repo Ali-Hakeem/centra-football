@@ -66,9 +66,9 @@ export default function Preview() {
 
         {/* Gradient overlay */}
         <div
-          className="absolute bottom-0 left-0 w-full h-[80%]"
+          className="absolute bottom-0 left-0 w-full h-[100%]"
           style={{
-            background: "linear-gradient(to top, rgba(0,0,0,0.9), transparent)",
+            background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
           }}
         />
 
@@ -158,7 +158,7 @@ export default function Preview() {
 
           {/* Scoring Names */}
           <div
-            className="flex justify-center gap-[300px] mt-2 w-full max-w-[800px] text-center text-white font-bold"
+            className="flex justify-center gap-[300px] mt-[-5] w-full max-w-[800px] text-center text-white font-bold"
             style={{ fontSize: "25px" }}
           >
             <div className="flex flex-col items-center max-h-[200px] overflow-y-auto p-2">

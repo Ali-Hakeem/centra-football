@@ -91,20 +91,20 @@ export default function KlasmenEditor() {
             <img
               src={klasmenImage}
               alt="Klasmen"
-              className="absolute top-0 left-0 h-full mb-5 w-[350px] object-contain bg-white p-2"
+              className="absolute top-0 left-0 h-full mb-5 w-[500px] object-contain bg-white p-2"
             />
           )}
 
           {/* Gradient overlay */}
           <div
-            className="absolute bottom-0 left-0 w-full h-[100%]"
+            className="absolute right-0 left-0 w-[100%] h-[100%]"
             style={{
-              background: "linear-gradient(to left, rgba(0,0,0,0.9), transparent)",
+              background: "linear-gradient(to left, rgba(0,0,0,0.3), transparent)",
             }}
           />
 
           {/* Embed Klasemen di kiri, full tinggi */}
-          <div className="absolute left-0 top-0 h-[1075px] w-[350px] p-1 z-20">
+          <div className="absolute left-0 top-0 h-[1075px] w-[500px] p-1 z-20">
             <iframe
               width="100%"
               height="80%"
@@ -135,9 +135,6 @@ export default function KlasmenEditor() {
               <span className="text-[#ff6508]"> "</span>
             </p>
           </div>
-          <div className="absolute justify-center items-center left-120 bottom-0 mb-10" style={{ fontSize: "22px"}}>
-              <p>centrafootball</p>
-              </div>
         </div>
       )}
     </main>
