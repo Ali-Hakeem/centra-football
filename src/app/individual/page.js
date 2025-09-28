@@ -189,7 +189,7 @@ export default function RekorPage() {
 
           {/* Judul */}
           <div className="relative z-10 text-left mb-5 w-full max-w-[850px]">
-            <p className="text-[80px] font-bold uppercase mt-[-25px]">
+            <p className="text-[80px] font-bold uppercase mt-[-35px]">
               {kategori} {liga}
             </p>
             <p className="text-[50px] mt-[-20px] text-[#ff6508]">{season}</p>
@@ -210,7 +210,7 @@ export default function RekorPage() {
                     <img
                       src={p.logo}
                       alt="klub"
-                      className="w-[30px] h-[35px] object-contain mb-[-32px]"
+                      className="w-[25px] h-[35px] object-contain mb-[-32px]"
                     />
                   )}
                   <span>{p.nama}</span>
