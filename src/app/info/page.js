@@ -31,7 +31,7 @@ export default function InfoEditor() {
 
       {/* Upload Gambar */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Upload Gambar Rasio 3:4</p>
+        <p className="mb-2 font-semibold">Upload Gambar Rasio 4:5</p>
         <input type="file" accept="image/*" onChange={handleFile} className="border rounded px-3 py-2 w-full text-black"/>
       </div>
 

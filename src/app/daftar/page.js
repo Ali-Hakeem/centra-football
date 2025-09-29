@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import html2canvas from "html2canvas";
-import overlayOptions from "@/data/overlayOptions";
 
 // ✅ Hook untuk simpan ke localStorage
 function usePersistedState(key, defaultValue) {
@@ -21,17 +20,13 @@ function usePersistedState(key, defaultValue) {
   return [state, setState];
 }
 
-export default function RekorPage() {
-  const [baseImage, setBaseImage] = usePersistedState("rekor_baseImage", null);
-  const [liga, setLiga] = usePersistedState("rekor_liga", "");
-  const [kategori, setKategori] = usePersistedState("rekor_kategori", "");
-  const [season, setSeason] = usePersistedState("rekor_season", "");
-  const [players, setPlayers] = usePersistedState("rekor_players", [
-    { nama: "", jumlah: "", logo: null },
-    { nama: "", jumlah: "", logo: null },
-    { nama: "", jumlah: "", logo: null },
-    { nama: "", jumlah: "", logo: null },
-    { nama: "", jumlah: "", logo: null },
+export default function DaftarPage() {
+  const [baseImage, setBaseImage] = usePersistedState("daftar_baseImage", null);
+  const [liga, setLiga] = usePersistedState("daftar_liga", "");
+  const [kategori, setKategori] = usePersistedState("daftar_kategori", "");
+  const [season, setSeason] = usePersistedState("daftar_season", "");
+  const [players, setPlayers] = usePersistedState("daftar_players", [
+    { nama: "", jumlah: "" },
   ]);
 
   const handleBaseUpload = (e) => {
@@ -47,9 +42,12 @@ export default function RekorPage() {
     setPlayers(updated);
   };
 
-  const handleLogoSelect = (index, value) => {
-    const updated = [...players];
-    updated[index].logo = value ? `/assets/${value}` : null;
+  const addPlayer = () => {
+    setPlayers([...players, { nama: "", jumlah: "" }]);
+  };
+
+  const removePlayer = (index) => {
+    const updated = players.filter((_, i) => i !== index);
     setPlayers(updated);
   };
 
@@ -85,18 +83,6 @@ export default function RekorPage() {
         />
       </div>
 
-      {/* Input Liga */}
-      <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2">Liga</p>
-        <input
-          type="text"
-          value={liga}
-          onChange={(e) => setLiga(e.target.value)}
-          className="border rounded px-3 py-2 w-full"
-          style={{ color: "#000000" }}
-        />
-      </div>
-
       {/* Input Kategori */}
       <div className="mb-4 w-full max-w-xl">
         <p className="mb-2">Kategori (Top Save/Pass/Skor)</p>
@@ -121,52 +107,45 @@ export default function RekorPage() {
         />
       </div>
 
-      {/* Input 5 pemain */}
+      {/* Input Pemain */}
       <div className="mb-6 w-full max-w-xl">
-        <p className="mb-2">5 Pemain</p>
+        <p className="mb-2">Pemain</p>
         {players.map((player, index) => (
-          <div key={index} className="flex flex-col gap-2 mb-4 border-b pb-4">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Nama Pemain"
-                value={player.nama}
-                onChange={(e) =>
-                  handlePlayerChange(index, "nama", e.target.value)
-                }
-                className="border rounded px-3 py-2 w-1/2"
-                style={{ color: "#000000" }}
-              />
-              <input
-                type="number"
-                placeholder="Jumlah"
-                value={player.jumlah}
-                onChange={(e) =>
-                  handlePlayerChange(index, "jumlah", e.target.value)
-                }
-                className="border rounded px-3 py-2 w-1/2"
-                style={{ color: "#000000" }}
-              />
-            </div>
-            {/* Dropdown Logo */}
-            <select
-              onChange={(e) => handleLogoSelect(index, e.target.value)}
-              className="border px-3 py-2 rounded text-black"
-              value={player.logo ? player.logo.replace("/assets/", "") : ""}
+          <div key={index} className="flex gap-2 mb-4">
+            <input
+              type="text"
+              placeholder="Nama Pemain"
+              value={player.nama}
+              onChange={(e) =>
+                handlePlayerChange(index, "nama", e.target.value)
+              }
+              className="border rounded px-3 py-2 w-1/2"
+              style={{ color: "#000000" }}
+            />
+            <input
+              type="text"
+              placeholder="Jumlah"
+              value={player.jumlah}
+              onChange={(e) =>
+                handlePlayerChange(index, "jumlah", e.target.value)
+              }
+              className="border rounded px-3 py-2 w-1/2"
+              style={{ color: "#000000" }}
+            />
+            <button
+              onClick={() => removePlayer(index)}
+              className="bg-red-600 text-white px-3 py-1 rounded"
             >
-              <option value="">-- Pilih Logo --</option>
-              {Object.entries(overlayOptions).map(([liga, teams]) => (
-                <optgroup key={liga} label={liga}>
-                  {teams.map((team) => (
-                    <option key={team} value={`${liga}/${team}`}>
-                      {team.replace(".png", "")}
-                    </option>
-                  ))}
-                </optgroup>
-              ))}
-            </select>
+              Hapus
+            </button>
           </div>
         ))}
+        <button
+          onClick={addPlayer}
+          className="bg-green-600 text-white px-4 py-2 rounded"
+        >
+          + Tambah Pemain
+        </button>
       </div>
 
       <button
@@ -187,6 +166,11 @@ export default function RekorPage() {
           className="relative mt-8 w-[1080px] h-[1350px] flex flex-col items-center p-10 overflow-hidden"
           style={{ backgroundColor: "#000000", color: "#ffffff" }}
         >
+
+            <div className="absolute justify-center items-center gap-12 left-10">
+                <img src="/assets/cf.png" className="w-[120px] h-[120px] object-contain"></img>
+            </div>
+
           {/* Background */}
           <img
             src={baseImage}
@@ -206,14 +190,13 @@ export default function RekorPage() {
           />
 
           {/* Judul */}
-          <div className="relative z-10 text-left mb-5 w-full max-w-[850px]">
-            <p className="text-[90px] font-bold uppercase mt-[-35px]">
+          <div className="relative z-10 top-160 flex flex-col gap-6 w-full max-w-[850px]">
+            <p className="text-[70px] font-bold uppercase mt-[-35px]">
               {kategori} {liga}
             </p>
-            <p className="text-[60px] mt-[-22px] text-[#ff6508]">{season}</p>
+            <p className="text-[50px] mt-[-50px] mb-[30px] text-[#ff6508]">{season}</p>
           </div>
 
-          {/* Daftar Pemain */}
           <div className="relative z-10 top-160 flex flex-col gap-6 w-full max-w-[850px]">
             {players.map((p, i) => (
               <div
@@ -224,13 +207,6 @@ export default function RekorPage() {
                 {/* Kiri: Nomor, Logo, Nama */}
                 <div className="flex items-center gap-5">
                   <span>{i + 1}.</span>
-                  {p.logo && (
-                    <img
-                      src={p.logo}
-                      alt="klub"
-                      className="w-[27px] h-[35px] object-contain mb-[-32px]"
-                    />
-                  )}
                   <span>{p.nama}</span>
                 </div>
 
@@ -238,18 +214,11 @@ export default function RekorPage() {
                 <span>{p.jumlah}</span>
               </div>
             ))}
-
-            {/* Footer */}
-            <div
-              className="flex flex-col items-center top-110 mb-35"
-              style={{
-                fontSize: "22px",
-                marginBottom: "-110px",
-                marginTop: "50px",
-              }}
-            >
-              <p>centrafootball</p>
             </div>
+
+          {/* Footer */}
+          <div className="relative z-10 mt-185 text-[24px] font-medium">
+            <p>@centrafootball</p>
           </div>
         </div>
       )}

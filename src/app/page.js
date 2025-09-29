@@ -7,12 +7,13 @@ export default function MenuPage() {
 
   const menus = [
     { name: "Update Skor", path: "/score" },
-    { name: "Quotes Editor", path: "/quotes" },
-    { name: "Info Editor", path: "/info" },
-    { name: "Statistik Editor", path: "/statistik" },
+    { name: "Quotes", path: "/quotes" },
+    { name: "Informasi", path: "/info" },
+    { name: "Statistik Player", path: "/statistik" },
     { name: "Klasmen", path: "/klasmen" },
-    { name: "Individual Stats", path: "/individual" },
+    { name: "Daftar Individual Stats (5)", path: "/individual" },
     { name: "Squad", path: "/squad" },
+    { name: "Daftar Individual Stats Unlimited", path: "/daftar" },
   ];
 
   return (
@@ -21,7 +22,7 @@ export default function MenuPage() {
       <h1 className="text-5xl font-extrabold mb-10 drop-shadow-lg">
         Menu Editor
       </h1>
-      <div className="absolute flex justify-center items-center top-100">
+      <div className="absolute flex justify-center items-center top-10">
           <img
             src="/assets/cf.png"
             className="w-[120px] h-[120px] object-contain"

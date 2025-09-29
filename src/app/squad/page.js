@@ -85,7 +85,7 @@ export default function SquadPage() {
 
       {/* Upload Background */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Upload Background Rasio 3:4</p>
+        <p className="mb-2 font-semibold">Upload Background Rasio 4:5</p>
         <input
           type="file"
           accept="image/*"
