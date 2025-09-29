@@ -167,7 +167,7 @@ export default function DaftarPage() {
           style={{ backgroundColor: "#000000", color: "#ffffff" }}
         >
 
-            <div className="absolute justify-center items-center gap-12 left-10">
+            <div className="absolute justify-center items-center gap-12 top-8 left-10">
                 <img src="/assets/cf.png" className="w-[120px] h-[120px] object-contain"></img>
             </div>
 
@@ -218,7 +218,7 @@ export default function DaftarPage() {
 
           {/* Footer */}
           <div className="relative z-10 mt-185 text-[24px] font-medium">
-            <p>@centrafootball</p>
+            <p>centrafootball</p>
           </div>
         </div>
       )}
