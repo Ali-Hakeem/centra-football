@@ -82,7 +82,7 @@ export default function InfoEditor() {
             style={{ background: "linear-gradient(to top, rgba(0,0,0,1.2), transparent)" }}
             />
 
-            <div className="absolute bottom-0 left-0 w-full px-10 text-white flex flex-col items-center mb-65">
+            <div className="absolute bottom-0 left-0 w-full px-15 text-white flex flex-col items-center mb-65 top-180">
                 <p
                     className="text-center italic"
                     style={{ fontSize: "110px", lineHeight: "0.9" }}
@@ -90,7 +90,7 @@ export default function InfoEditor() {
                   <span className="text-[#ff6508]">{quote}</span> {quote2}
                 </p>
 
-              <div className="absolute justify-center items-center left-120 top-85 mt-5" style={{ fontSize: "22px"}}>
+              <div className="absolute justify-center items-center left-120 top-120 mt-5" style={{ fontSize: "22px"}}>
               <p>centrafootball</p>
               </div>
             </div>

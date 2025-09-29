@@ -173,7 +173,7 @@ export default function SquadPage() {
       {baseImage && (
         <div
           id="squad-preview"
-          className="relative mt-8 w-[1080px] h-[1350px] flex flex-col items-start p-10 overflow-hidden"
+          className="relative mt-5 w-[1080px] h-[1350px] flex flex-col items-start p-10 overflow-hidden"
           style={{ backgroundColor: "#000" }}
         >
           {/* Background */}
@@ -190,7 +190,7 @@ export default function SquadPage() {
           </div>
 
           {/* Text */}
-          <div className="relative top-0 mt-[-65px] z-10 w-full">
+          <div className="relative top-0 mt-[-78px] z-10 w-full">
             <h1 className="text-[100px] font-bold mb-[-25px]">{title}</h1>
             <h2 className="text-[45px] mb-4">{subtitle}</h2>
 

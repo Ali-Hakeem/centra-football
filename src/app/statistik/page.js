@@ -34,7 +34,7 @@ export default function StatistikEditor() {
 
       {/* Upload Background */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Upload Background</p>
+        <p className="mb-2 font-semibold">Upload Background Rasio 3:4</p>
         <input
           type="file"
           accept="image/*"
@@ -109,7 +109,7 @@ export default function StatistikEditor() {
       {baseImage && (
         <div
           id="card-preview"
-          className="relative mt-8 w-[1080px] h-[1080px] overflow-hidden"
+          className="relative mt-8 w-[1080px] h-[1350px] overflow-hidden"
         >
           {/* Background */}
           <img
@@ -122,7 +122,7 @@ export default function StatistikEditor() {
           <div
             className="absolute inset-0 h-[100%]"
             style={{
-              background: "linear-gradient(to top, rgba(0,0,0,1.9), transparent 50%)",
+              background: "linear-gradient(to top, rgba(0,0,0,2.5), transparent 50%)",
             }}
           />
 
@@ -135,15 +135,15 @@ export default function StatistikEditor() {
           </div>
 
           {/* Nama Pemain */}
-          <div className="absolute top-[600px] left-1/2 transform -translate-x-1/2 text-center">
+          <div className="absolute top-[750px] left-1/2 transform -translate-x-1/2 text-center">
             <p className="font-bold text-[#fff]" style={{ fontSize: "55px"}}>{name}</p>
             <div>
-              <span><p className="px-4 text-[#fff] font-semibold" style={{ fontSize: "35px"}}>{musim}</p></span>
+              <span><p className="px-4 text-[#fff] font-semibold mt-[-10px]" style={{ fontSize: "35px"}}>{musim}</p></span>
             </div>
           </div>
 
           {/* Stats */}
-          <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-16 text-center">
+          <div className="absolute bottom-55 left-1/2 transform -translate-x-1/2 flex gap-16 text-center">
             <div>
               <p className="font-bold text-[#ff6508] mb-[-5px]" style={{ fontSize: "240px"}}>{appearances}</p>
               <p className="text-[#fff] font-semibold" style={{ fontSize: "40px"}}>MATCHES</p>

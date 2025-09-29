@@ -84,7 +84,7 @@ export default function Preview() {
 
         {/* Wrapper Center */}
         <div className="absolute bottom-40 left-0 w-full flex flex-col items-center text-white font-bold">
-          <div className="bg-white border-8 p-1">
+          <div className="p-1">
             {overlayImage3 && (
               <img
                 src={overlayImage3}
