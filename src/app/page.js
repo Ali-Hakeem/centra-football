@@ -21,10 +21,10 @@ export default function MenuPage() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-6 bg-[#ff6508] text-white">
       {/* Judul */}
-      <h1 className="text-5xl font-extrabold mb-10 drop-shadow-lg">
+      <h1 className="text-5xl font-extrabold mb-5 drop-shadow-lg">
         Menu Editor
       </h1>
-      <div className="absolute flex justify-center items-center top-10">
+      <div className="absolute flex justify-center items-center top-0">
           <img
             src="/assets/cf.png"
             className="w-[120px] h-[120px] object-contain"

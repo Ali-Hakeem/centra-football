@@ -217,7 +217,7 @@ export default function DaftarPage() {
             </div>
 
           {/* Footer */}
-          <div className="relative z-10 mt-185 text-[24px] font-medium">
+          <div className="relative z-10 mt-190 text-[24px] font-medium">
             <p>centrafootball</p>
           </div>
         </div>

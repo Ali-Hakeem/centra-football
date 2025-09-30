@@ -79,19 +79,30 @@ export default function QuotesEditor() {
             
             {/* Gradient overlay */}
             <div
-            className="absolute bottom-0 left-0 w-full h-full"
+            className="absolute bottom-0 left-0 w-full h-[110%]"
             style={{ background: "linear-gradient(to top, rgba(0,0,0,1.2), transparent)" }}
             />
 
-            <div className="absolute bottom-0 left-0 w-full p-6 text-white flex flex-col items-center mb-70">
+          <div className="absolute inset-0 flex justify-center items-center p-5 text-white top-150">
+            <div className="flex flex-col items-center max-w-[984px]">
+              <p
+                className="text-center italic"
+                style={{ fontSize: "75px", lineHeight: "1.1" }}
+              >
+                <span className="text-[#ff6508]">" </span>
+                {quote}
+                <span className="text-[#ff6508]"> "</span>
+              </p>
+              {author && (
                 <p
-                    className="text-center italic"
-                    style={{ fontSize: "55px", lineHeight: "1.1" }}
+                  className="mt-10 font-semibold"
+                  style={{ fontSize: "30px", lineHeight: "1.1" }}
                 >
-                    <span className="text-[#ff6508]">" </span>{quote}<span className="text-[#ff6508]"> "</span>
+                  - {author}
                 </p>
-                {author && <p className="mt-10 font-semibold" style={{ fontSize: "30px", lineHeight: "1.1" }}>- {author}</p>}
+              )}
             </div>
+          </div>
         </div>
       )}
     </main>
