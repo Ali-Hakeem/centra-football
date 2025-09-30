@@ -6,7 +6,8 @@ export default function MenuPage() {
   const router = useRouter();
 
   const menus = [
-    { name: "Update Skor", path: "/score" },
+    { name: "Update Skor Liga", path: "/score" },
+    { name: "Update Skor UCL, UECL UEFL", path: "/scoreucl" },
     { name: "Quotes", path: "/quotes" },
     { name: "Informasi", path: "/info" },
     { name: "Statistik Player", path: "/statistik" },
