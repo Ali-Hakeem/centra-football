@@ -95,8 +95,8 @@ export default function QuotesEditor() {
               </p>
               {author && (
                 <p
-                  className="mt-10 font-semibold"
-                  style={{ fontSize: "30px", lineHeight: "1.1" }}
+                  className="text-center mt-10 font-semibold"
+                  style={{ fontSize: "40px", lineHeight: "1.1" }}
                 >
                   - {author}
                 </p>
