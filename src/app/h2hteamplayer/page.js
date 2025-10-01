@@ -177,7 +177,7 @@ const handleLogoSelect = (value) => {
       >
         {/* Background */}
         <img
-          src={baseImage || "/assets/std.jpg"}
+          src="/assets/std.jpg"
           alt="Base"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
