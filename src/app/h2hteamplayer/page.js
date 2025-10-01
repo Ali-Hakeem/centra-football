@@ -248,7 +248,7 @@ const handleLogoSelect = (value) => {
               {/* Score + Club B */}
               <div className="flex items-center gap-10 ml-10">
                 
-              <span className="mt-[-20px]" style={{ fontSize: "30px" }}>{h.scoreA}</span>
+              <span className="mt-[-20px]" style={{ fontSize: "30px" }}>{h.scoreB}</span>
               </div>
             </div>
           ))}
