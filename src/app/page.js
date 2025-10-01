@@ -16,6 +16,7 @@ export default function MenuPage() {
     { name: "Squad", path: "/squad" },
     { name: "Daftar Individual Stats Unlimited", path: "/daftar" },
     { name: "Head to Head Tim", path: "/h2hteam" },
+    { name: "Head to Head Player", path: "/h2hteamplayer" },
   ];
 
   return (

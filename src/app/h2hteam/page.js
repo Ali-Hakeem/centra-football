@@ -228,14 +228,14 @@ export default function Head2Head() {
                   <img
                     src={clubA}
                     alt="Club A"
-                    className="w-[100px] h-[130px] object-contain"
+                    className="w-[85px] h-[110px] object-contain"
                   />
                 )}
                 <span className="mt-[-55px]" style={{ fontSize: "70px" }}>{h.scoreA}</span>
               </div>
 
               {/* Tahun di tengah */}
-              <span className="mt-[-20px] mx-6 text-[#ff6508] text-[30px] w-[100px] text-center font-bold">{h.year}</span>
+              <span className="mt-[-20px] text-[#ff6508] text-[30px] w-[100px] text-center font-bold">{h.year}</span>
 
               {/* Score + Club B */}
               <div className="flex items-center gap-10">
@@ -244,7 +244,7 @@ export default function Head2Head() {
                   <img
                     src={clubB}
                     alt="Club B"
-                    className="w-[100px] h-[130px] object-contain"
+                    className="w-[85px] h-[110px] object-contain"
                   />
                 )}
               </div>
