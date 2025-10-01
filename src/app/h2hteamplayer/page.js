@@ -175,6 +175,12 @@ const handleLogoSelect = (value) => {
         ref={previewRef}
         className="relative bg-black w-[800px] h-[1000px] overflow-hidden"
       >
+        {/* Background */}
+        <img
+          src={baseImage || "/assets/std.jpg"}
+          alt="Base"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
 
         {/* Overlay hitam transparan */}
         <div
