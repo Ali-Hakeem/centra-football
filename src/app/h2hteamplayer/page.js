@@ -208,22 +208,6 @@ const handleLogoSelect = (value) => {
               alt="Player A"
               className="h-full w-full object-contain"
             />
-            {/* Overlay gradient atas */}
-            <div
-              className="absolute top-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
-            />
-            {/* Overlay gradient bawah */}
-            <div
-              className="absolute bottom-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
-            />
           </div>
         )}
 
@@ -234,22 +218,6 @@ const handleLogoSelect = (value) => {
               src={playerB}
               alt="Player B"
               className="h-full w-full object-contain"
-            />
-            {/* Overlay gradient atas */}
-            <div
-              className="absolute top-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
-            />
-            {/* Overlay gradient bawah */}
-            <div
-              className="absolute bottom-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
             />
           </div>
         )}
