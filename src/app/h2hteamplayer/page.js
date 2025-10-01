@@ -86,18 +86,6 @@ const handleLogoSelect = (value) => {
       {/* Select Klub */}
       <div className="flex gap-6">
 
-        {/* Upload Background */}
-        <div className="mb-4 w-full max-w-xl">
-          <p className="mb-2 font-semibold">Upload Gambar Background Rasio 4:5</p>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleBaseUpload}
-            className="w-full border px-3 py-2 rounded text-white"
-            style={{ color: "#000000" }}
-          />
-        </div>
-
         {/* Upload player A */}
         <div className="mb-4 w-full max-w-xl">
           <p className="mb-2 font-semibold">Upload Gambar A Rasio 4:5</p>
@@ -187,14 +175,6 @@ const handleLogoSelect = (value) => {
         ref={previewRef}
         className="relative bg-black w-[800px] h-[1000px] overflow-hidden"
       >
-        {/* Background */}
-        {baseImage && (
-          <img
-            src="/assets/std.jpg"
-            alt="Base"
-            className="absolute inset-0 w-full h-full object-cover z-0"
-          />
-        )}
 
         {/* Overlay hitam transparan */}
         <div
