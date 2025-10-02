@@ -223,7 +223,7 @@ const handleLogoSelect = (value) => {
       >
         {/* Background */}
         <img
-          src={baseImage || "/assets/std.jpg"}
+          src="/assets/std.jpg"
           alt="Base"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -294,7 +294,7 @@ const handleLogoSelect = (value) => {
               {/* Score + Club B */}
               <div className="flex items-center gap-10 ml-10">
                 
-              <span className="mt-[-20px]" style={{ fontSize: "30px" }}>{h.scoreA}</span>
+              <span className="mt-[-20px]" style={{ fontSize: "30px" }}>{h.scoreB}</span>
               </div>
             </div>
           ))}
