@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
 import overlayKompetisi from "@/data/overlayKompetisi";
+import overlayOptions from "@/data/overlayOptions";
 
 function usePersistedState(key, defaultValue) {
   const [state, setState] = useState(() => {
@@ -24,6 +25,8 @@ export default function Head2Head() {
   const [baseImage, setBaseImage] = usePersistedState("h2hp_baseImage", null);
   const [playerA, setplayerA] = usePersistedState("h2hp_playerA", null);
   const [playerB, setplayerB] = usePersistedState("h2hp_playerB", null);
+  const [clubA, setClubA] = usePersistedState("h2hp_clubA", null);
+  const [clubB, setClubB] = usePersistedState("h2hp_clubB", null);
   const [history, setHistory] = usePersistedState("h2hp_history", [
     { year: "", scoreA: "", scoreB: "" },
     { year: "", scoreA: "", scoreB: "" },
@@ -53,6 +56,10 @@ export default function Head2Head() {
       const url = URL.createObjectURL(e.target.files[0]);
       setplayerB(url);
     }
+  };
+
+  const handleLogoSelectClub = (setter, value) => {
+    setter(value ? `/assets/${value}` : "");
   };
 
   const [kompetisiImage, setKompetisiImage] = useState(null);
@@ -112,6 +119,45 @@ const handleLogoSelect = (value) => {
       </div>
 
       <div>
+        <p className="mb-1">Club</p>
+          {/* Dropdown Logo Klub A */}
+          <select
+            onChange={(e) => handleLogoSelectClub(setClubA, e.target.value)}
+            className="border px-3 py-2 rounded text-black"
+            value={clubA}
+          >
+            <option value="">-- Pilih Logo Klub A --</option>
+            {Object.entries(overlayOptions).map(([liga, teams]) => (
+              <optgroup key={liga} label={liga}>
+                {teams.map((team) => (
+                  <option key={team} value={`${liga}/${team}`}>
+                    {team.replace(".png", "")}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+
+          {/* Dropdown Logo Klub B */}
+          <select
+            onChange={(e) => handleLogoSelectClub(setClubB, e.target.value)}
+            className="border px-3 py-2 rounded text-black"
+            value={clubB}
+          >
+            <option value="">-- Pilih Logo Klub B --</option>
+            {Object.entries(overlayOptions).map(([liga, teams]) => (
+              <optgroup key={liga} label={liga}>
+                {teams.map((team) => (
+                  <option key={team} value={`${liga}/${team}`}>
+                    {team.replace(".png", "")}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+      </div>
+
+      <div>
           <p className="mb-1">Kompetisi</p>
           {/* Dropdown Logo Klub A */}
           <select
@@ -134,7 +180,7 @@ const handleLogoSelect = (value) => {
 
       {/* Input History Pertemuan */}
       <div className="w-full max-w-xl">
-        <p className="mb-2 font-semibold">5 Pertemuan Terakhir</p>
+        <p className="mb-2 font-semibold">5 Kategpri Terakhir</p>
         {history.map((h, i) => (
           <div key={i} className="flex gap-2 mb-2">
             <input
@@ -208,23 +254,7 @@ const handleLogoSelect = (value) => {
               alt="Player A"
               className="h-full w-full object-contain"
             />
-            {/* Overlay gradient atas */}
-            <div
-              className="absolute top-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
-            />
-            {/* Overlay gradient bawah */}
-            <div
-              className="absolute bottom-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
-            />
-          </div>
+        </div>
         )}
 
         {/* Player B */}
@@ -234,22 +264,6 @@ const handleLogoSelect = (value) => {
               src={playerB}
               alt="Player B"
               className="h-full w-full object-contain"
-            />
-            {/* Overlay gradient atas */}
-            <div
-              className="absolute top-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
-            />
-            {/* Overlay gradient bawah */}
-            <div
-              className="absolute bottom-0 left-0 w-full h-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))",
-              }}
             />
           </div>
         )}
@@ -336,6 +350,31 @@ const handleLogoSelect = (value) => {
        {/* } <div className="relative left-75 z-20 top-[-210px] w-[200px] h-[200px] flex flex-col gap-2 bg-white"> 
         </div> */}
 
+        </div>
+
+        {/* Logo */}
+        <div className="flex relative z-50 justify-between items-center px-[-50] mt-[-300px]">
+          {clubA && (
+            <div className="w-[600px] h-[600px] flex justify-center items-center mt-[-10px]">
+                <img
+                  src={clubA}
+                  alt="Overlay Left"
+                  className="object-contain max-w-full max-h-full"
+                  draggable={false}
+                />
+            </div>
+          )}
+
+          {clubB && (
+            <div className="w-[600px] h-[600px] flex justify-center items-center mt-[-10px]">
+            <img
+              src={clubB}
+              alt="Overlay Left"
+              className="object-contain max-w-full max-h-full"
+              draggable={false}
+            />
+          </div>
+          )}
         </div>
 
         

@@ -22,16 +22,17 @@ export default function MenuPage() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-6 bg-[#ff6508] text-white">
       {/* Judul */}
-      <h1 className="text-5xl font-extrabold mb-5 drop-shadow-lg">
-        Menu Editor
-      </h1>
-      <div className="absolute flex justify-center items-center top-0">
+      
+      <div className="flex justify-center items-center mb-1">
           <img
             src="/assets/cf.png"
             className="w-[120px] h-[120px] object-contain"
             alt="CF Logo"
           />
         </div>
+      <h1 className="text-5xl font-extrabold mb-5 drop-shadow-lg">
+        Menu Editor
+      </h1>
 
       {/* Container Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
