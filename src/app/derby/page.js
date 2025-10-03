@@ -283,7 +283,7 @@ const handleLogoSelect = (value) => {
               <img
                 src={clubA}
                 alt="Overlay Left"
-                className="object-contain max-w-full max-h-full filter grayscale"
+                className="object-contain max-w-full max-h-full"
                 draggable={false}
               />
             </div>
@@ -293,7 +293,7 @@ const handleLogoSelect = (value) => {
               <img
                 src={clubB}
                 alt="Overlay Left"
-                className="object-contain max-w-full max-h-full filter grayscale"
+                className="object-contain max-w-full max-h-full"
                 draggable={false}
               />
             </div>
