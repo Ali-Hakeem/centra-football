@@ -22,9 +22,8 @@ function usePersistedState(key, defaultValue) {
 }
 
 export default function Head2Head() {
-  const [baseImage, setBaseImage] = usePersistedState("h2hp_baseImage", null);
-  const [playerA, setplayerA] = usePersistedState("h2hp_playerA", null);
-  const [playerB, setplayerB] = usePersistedState("h2hp_playerB", null);
+  const [baseImage, setBaseImage] = usePersistedState("derby_baseImage", null);
+  const [kategori, setKategori] = usePersistedState("derby_kategori", "");
   const [clubA, setClubA] = usePersistedState("h2hp_clubA", null);
   const [clubB, setClubB] = usePersistedState("h2hp_clubB", null);
   const [history, setHistory] = usePersistedState("h2hp_history", [
@@ -81,7 +80,7 @@ const handleLogoSelect = (value) => {
       scale: 2, // biar lebih HD
     });
     const link = document.createElement("a");
-    link.download = "head2head.png";
+    link.download = "matchday.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
   };
@@ -90,34 +89,31 @@ const handleLogoSelect = (value) => {
     <main className="flex flex-col items-center gap-6 p-6 bg-[#ff6508] min-h-screen text-white">
       <h1 className="z-10 text-3xl font-bold">Head 2 Head Editor</h1>
 
-      {/* Select Klub */}
-      <div className="flex gap-6">
-
-        {/* Upload player A */}
-        <div className="mb-4 w-full max-w-xl">
-          <p className="mb-2 font-semibold">Upload Gambar A Rasio 9:16</p>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handlePlayerA}
-            className="w-full border px-3 py-2 rounded text-white"
-            style={{ color: "#000000" }}
-          />
-        </div>
-
-        {/* Upload player B */}
-        <div className="mb-4 w-full max-w-xl">
-          <p className="mb-2 font-semibold">Upload Gambar B Rasio 9:16</p>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handlePlayerB}
-            className="w-full border px-3 py-2 rounded text-white"
-            style={{ color: "#000000" }}
-          />
-        </div>
+      {/* Upload Background */}
+      <div className="mb-4 w-full max-w-xl">
+        <p className="mb-2 font-semibold">Upload Gambar Background 1080px X 750px</p>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleBaseUpload}
+          className="border rounded px-3 py-2 w-full"
+          style={{ color: "#000000" }}
+        />
       </div>
 
+      {/* Input Kategori */}
+      <div className="mb-4 w-full max-w-xl">
+        <p className="mb-2">Kategori (Top Save/Pass/Skor)</p>
+        <input
+          type="text"
+          value={kategori}
+          onChange={(e) => setKategori(e.target.value)}
+          className="border rounded px-3 py-2 w-full"
+          style={{ color: "#000000" }}
+        />
+      </div>
+
+      {/* Select Klub */}
       <div>
         <p className="mb-1">Club</p>
           {/* Dropdown Logo Klub A */}
@@ -180,7 +176,7 @@ const handleLogoSelect = (value) => {
 
       {/* Input History Pertemuan */}
       <div className="w-full max-w-xl">
-        <p className="mb-2 font-semibold">5 Kategori</p>
+        <p className="mb-2 font-semibold">5 Kategpri Terakhir</p>
         {history.map((h, i) => (
           <div key={i} className="flex gap-2 mb-2">
             <input
@@ -223,56 +219,41 @@ const handleLogoSelect = (value) => {
       >
         {/* Background */}
         <img
-          src="/assets/std.jpg"
+          src="/assets/std2.jpg"
           alt="Base"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
+        {/* Background input */}
+        <img
+            src={baseImage}
+            alt="Base"
+            className="absolute inset-0 w-[1080px] h-[750px] object-cover z-5"
+          />
 
-        {/* Overlay hitam transparan */}
-        <div
-          className="absolute inset-0 z-20"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0))",
-          }}
+        {/* Background */}
+        <img
+          src="/assets/std22.png"
+          alt="Base"
+          className="absolute inset-0 w-full h-full object-cover z-40"
         />
 
         {/* Overlay hitam transparan */}
         <div
-          className="absolute inset-0 z-20"
+          className="absolute inset-0 z-10"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0))",
           }}
         />
 
-        {/* Player A */}
-        {playerA && (
-          <div className="absolute top-60 left-0 h-[480px] w-[270px] z-10 overflow-hidden">
-            <img
-              src={playerA}
-              alt="Player A"
-              className="h-full w-full object-contain"
-            />
+        <div className="relative left-23 z-50 top-[455px] w-[620px] h-34 flex flex-col gap-2 bg-white"> 
         </div>
-        )}
-
-        {/* Player B */}
-        {playerB && (
-          <div className="absolute top-60 right-0 h-[480px] w-[270px] z-10 overflow-hidden">
-            <img
-              src={playerB}
-              alt="Player B"
-              className="h-full w-full object-contain"
-            />
-          </div>
-        )}
 
         {/* Judul */}
-        <div> 
-          <div className="absolute justify-center z-30 flex flex-col items-center gap-12 top-8 left-5">
-            <img src="/assets/h2hplayer.png" className="w-full h-auto object-contain"></img>
-          </div>
+        <div className="relative left-35 z-50 flex flex-col gap-6 w-full max-w-[850px]">
+            <p className="text-[150px] font-bold uppercase mt-[85px]">
+              {kategori}
+            </p>
         </div>
 
         {/* History */}
@@ -304,58 +285,14 @@ const handleLogoSelect = (value) => {
           <img
             src={kompetisiImage}
             alt="Kompetisi"
-            className="absolute top-143 left-85 z-50 w-[120px] h-[120px] object-contain"
+            className="absolute top-10 left-165 z-50 w-[120px] h-[120px] object-contain"
           />
         )}
 
-
-
-        <div className="mt-[-82px]">  
-
-        <div className="relative left-85 z-20 top-27 w-[120px] h-10 flex flex-col gap-2 bg-white"> 
-        </div>
-        <div className="relative left-64 z-25 top-[68px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-        <div className="relative left-115 z-25 top-[28px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-
-        <div className="relative left-85 z-20 top-10 w-[120px] h-10 flex flex-col gap-2 bg-white"> 
-        </div>
-        <div className="relative left-64 z-25 top-[0px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-        <div className="relative left-115 z-25 top-[-40px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-
-        <div className="relative left-85 z-20 top-[-27px] w-[120px] h-10 flex flex-col gap-2 bg-white"> 
-        </div>
-        <div className="relative left-64 z-25 top-[-67px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-        <div className="relative left-115 z-25 top-[-107px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-
-        <div className="relative left-85 z-20 top-[-94px] w-[120px] h-10 flex flex-col gap-2 bg-white"> 
-        </div>
-        <div className="relative left-64 z-25 top-[-134px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-        <div className="relative left-115 z-25 top-[-174px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-
-        <div className="relative left-85 z-20 top-[-160px] w-[120px] h-10 flex flex-col gap-2 bg-white"> 
-        </div>
-        <div className="relative left-64 z-25 top-[-200px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-        <div className="relative left-115 z-25 top-[-240px] w-[90px] h-10 flex flex-col gap-2 bg-[#ff6508]">
-        </div>
-
-       {/* } <div className="relative left-75 z-20 top-[-210px] w-[200px] h-[200px] flex flex-col gap-2 bg-white"> 
-        </div> */}
-
-        </div>
-
         {/* Logo */}
-        <div className="flex relative z-50 justify-between items-center px-[-50] mt-[-300px]">
+        <div className="flex relative z-50 px-5 mt-[-210px]">
           {clubA && (
-            <div className="w-[600px] h-[600px] flex justify-center items-center mt-[-10px]">
+            <div className="w-[120px] h-[120px] ml-20 flex justify-center items-center mt-[-10px]">
                 <img
                   src={clubA}
                   alt="Overlay Left"
@@ -364,9 +301,9 @@ const handleLogoSelect = (value) => {
                 />
             </div>
           )}
-
+          <h2 className="ml-5 mt-[10px]" style={{ color: "#000", fontSize: "60px" }}>VS</h2>
           {clubB && (
-            <div className="w-[600px] h-[600px] flex justify-center items-center mt-[-10px]">
+            <div className="w-[120px] h-[120px] flex justify-center items-center ml-[20px]  mt-[-10px]">
             <img
               src={clubB}
               alt="Overlay Left"
@@ -379,7 +316,7 @@ const handleLogoSelect = (value) => {
 
         
           {/* Footer */}
-<div className="absolute bottom-12 w-full z-20 flex justify-center">
+<div className="absolute bottom-12 w-full z-50 flex justify-center">
   <p className="text-white text-[22px] font-bold tracking-wide">
     centrafootball
   </p>

@@ -7,7 +7,8 @@ export default function MenuPage() {
 
   const menus = [
     { name: "Update Skor Liga", path: "/score" },
-    { name: "Update Skor UCL, UECL UEFL", path: "/scoreucl" },
+    { name: "Update Skor UCL", path: "/scoreucl" },
+    { name: "Update Skor UEL", path: "/scoreuel" },
     { name: "Quotes", path: "/quotes" },
     { name: "Informasi", path: "/info" },
     { name: "Statistik Player", path: "/statistik" },
@@ -17,6 +18,7 @@ export default function MenuPage() {
     { name: "Daftar Individual Stats Unlimited", path: "/daftar" },
     { name: "Head to Head Tim", path: "/h2hteam" },
     { name: "Head to Head Player", path: "/h2hteamplayer" },
+    { name: "Big Match, Derby", path: "/derby" },
   ];
 
   return (
