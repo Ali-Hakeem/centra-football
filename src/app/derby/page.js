@@ -26,9 +26,9 @@ export default function Head2Head() {
   const [baseImage, setBaseImage] = usePersistedState("derby_baseImage", null);
   const [kategori, setKategori] = usePersistedState("derby_kategori", "");
   const [stadion, setStadion] = usePersistedState("derby_stadion", "");
-  const [clubA, setClubA] = usePersistedState("h2hp_clubA", null);
-  const [clubB, setClubB] = usePersistedState("h2hp_clubB", null);
-  const [history, setHistory] = usePersistedState("h2hp_history", [
+  const [clubA, setClubA] = usePersistedState("derby_clubA", null);
+  const [clubB, setClubB] = usePersistedState("derby_clubB", null);
+  const [history, setHistory] = usePersistedState("derby_history", [
     { year: "", scoreA: "", scoreB: "" },
     { year: "", scoreA: "", scoreB: "" },
     { year: "", scoreA: "", scoreB: "" },
