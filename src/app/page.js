@@ -9,6 +9,7 @@ export default function MenuPage() {
     { name: "Update Skor Liga", path: "/score" },
     { name: "Update Skor UCL", path: "/scoreucl" },
     { name: "Update Skor UEL", path: "/scoreuel" },
+    { name: "Update Skor UECL", path: "/scoreuecl" },
     { name: "Quotes", path: "/quotes" },
     { name: "Informasi", path: "/info" },
     { name: "Statistik Player", path: "/statistik" },
