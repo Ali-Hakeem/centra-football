@@ -22,8 +22,10 @@ function usePersistedState(key, defaultValue) {
 }
 
 export default function Head2Head() {
+  const [jam, setJam] = usePersistedState("derby_jam", "");
   const [baseImage, setBaseImage] = usePersistedState("derby_baseImage", null);
   const [kategori, setKategori] = usePersistedState("derby_kategori", "");
+  const [stadion, setStadion] = usePersistedState("derby_stadion", "");
   const [clubA, setClubA] = usePersistedState("h2hp_clubA", null);
   const [clubB, setClubB] = usePersistedState("h2hp_clubB", null);
   const [history, setHistory] = usePersistedState("h2hp_history", [
@@ -100,7 +102,7 @@ const handleLogoSelect = (value) => {
           style={{ color: "#000000" }}
         />
       </div>
-
+     
       {/* Input Kategori */}
       <div className="mb-4 w-full max-w-xl">
         <p className="mb-2">Kategori (Top Save/Pass/Skor)</p>
@@ -108,6 +110,30 @@ const handleLogoSelect = (value) => {
           type="text"
           value={kategori}
           onChange={(e) => setKategori(e.target.value)}
+          className="border rounded px-3 py-2 w-full"
+          style={{ color: "#000000" }}
+        />
+      </div>
+
+      {/* Input jam */}
+      <div className="mb-4 w-full max-w-xl">
+        <p className="mb-2">Jam/tanggal</p>
+        <input
+          type="text"
+          value={jam}
+          onChange={(e) => setJam(e.target.value)}
+          className="border rounded px-3 py-2 w-full"
+          style={{ color: "#000000" }}
+        />
+      </div>
+
+      {/* Input stadion */}
+      <div className="mb-4 w-full max-w-xl">
+        <p className="mb-2">stadion</p>
+        <input
+          type="text"
+          value={stadion}
+          onChange={(e) => setStadion(e.target.value)}
           className="border rounded px-3 py-2 w-full"
           style={{ color: "#000000" }}
         />
@@ -173,37 +199,6 @@ const handleLogoSelect = (value) => {
           </select>
         </div>
 
-
-      {/* Input History Pertemuan */}
-      <div className="w-full max-w-xl">
-        <p className="mb-2 font-semibold">5 Kategpri Terakhir</p>
-        {history.map((h, i) => (
-          <div key={i} className="flex gap-2 mb-2">
-            <input
-              type="text"
-              placeholder="kategori"
-              value={h.year}
-              onChange={(e) => handleHistoryChange(i, "year", e.target.value)}
-              className="w-1/4 p-2 border px-3 py-2 rounded text-black"
-            />
-            <input
-              type="text"
-              placeholder="Skor Klub A"
-              value={h.scoreA}
-              onChange={(e) => handleHistoryChange(i, "scoreA", e.target.value)}
-              className="w-1/4 p-2 border px-3 py-2 rounded text-black"
-            />
-            <input
-              type="text"
-              placeholder="Skor Klub B"
-              value={h.scoreB}
-              onChange={(e) => handleHistoryChange(i, "scoreB", e.target.value)}
-              className="w-1/4 p-2 border px-3 py-2 rounded text-black"
-            />
-          </div>
-        ))}
-      </div>
-
       {/* Tombol Download */}
       <button
         onClick={handleDownload}
@@ -223,6 +218,15 @@ const handleLogoSelect = (value) => {
           alt="Base"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
+
+        <div className="z-30 absolute flex justify-center items-center gap-12 left-10">
+            <img
+              src="/assets/cf.png"
+              className="w-[120px] h-[120px] object-contain"
+              alt="CF Logo"
+            />
+        </div>
+
         {/* Background input */}
         <img
             src={baseImage}
@@ -246,81 +250,86 @@ const handleLogoSelect = (value) => {
           }}
         />
 
-        <div className="relative left-23 z-50 top-[455px] w-[620px] h-34 flex flex-col gap-2 bg-white"> 
+        <div className="relative left-70 z-50 top-[615px] w-[240px] h-28 flex flex-col gap-2 bg-white">
+          <div className="h-34 w-[120px] bg-[#ff6508]">
+          </div>
         </div>
 
         {/* Judul */}
-        <div className="relative left-35 z-50 flex flex-col gap-6 w-full max-w-[850px]">
-            <p className="text-[150px] font-bold uppercase mt-[85px]">
-              {kategori}
-            </p>
+        <div className="relative items-center justify-center z-50 flex flex-col gap-6 w-full max-w-[850px]">
+          <p
+            className="text-[150px] font-bold uppercase mt-[250px] text-white"
+            style={{
+              textShadow: "0 0 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.7)"
+            }}
+          >
+            {kategori}
+          </p>
         </div>
 
-        {/* History */}
-        <div className="relative z-30 top-66 w-[800px] flex flex-col gap-7">
-          {history.map((h, i) => (
-            <div
-              key={i}
-              className="flex items-center justify-center text-white text-[20px] font-bold"
-            >
-              {/* Club A + Score */}
-              <div className="flex items-center gap-10 mr-10">
-
-                <span className="mt-[-20px]" style={{ fontSize: "30px" }}>{h.scoreA}</span>
-              </div>
-
-              {/* Tahun di tengah */}
-              <span className="mt-[-20px] text-[#ff6508] text-[30px] w-[100px] text-center font-bold">{h.year}</span>
-
-              {/* Score + Club B */}
-              <div className="flex items-center gap-10 ml-10">
-                
-              <span className="mt-[-20px]" style={{ fontSize: "30px" }}>{h.scoreB}</span>
-              </div>
-            </div>
-          ))}
-        </div>
 
         {kompetisiImage && (
           <img
             src={kompetisiImage}
             alt="Kompetisi"
-            className="absolute top-10 left-165 z-50 w-[120px] h-[120px] object-contain"
+            className="absolute top-10 left-160 z-50 w-[120px] h-[120px] object-contain"
           />
         )}
 
         {/* Logo */}
-        <div className="flex relative z-50 px-5 mt-[-210px]">
+        <div className="flex relative z-50 px-5 mt-[45px]">
           {clubA && (
-            <div className="w-[120px] h-[120px] ml-20 flex justify-center items-center mt-[-10px]">
-                <img
-                  src={clubA}
-                  alt="Overlay Left"
-                  className="object-contain max-w-full max-h-full"
-                  draggable={false}
-                />
+            <div className="w-[100px] h-[100px] ml-67 flex justify-center items-center mt-[-10px]">
+              <img
+                src={clubA}
+                alt="Overlay Left"
+                className="object-contain max-w-full max-h-full filter grayscale"
+                draggable={false}
+              />
             </div>
           )}
-          <h2 className="ml-5 mt-[10px]" style={{ color: "#000", fontSize: "60px" }}>VS</h2>
           {clubB && (
-            <div className="w-[120px] h-[120px] flex justify-center items-center ml-[20px]  mt-[-10px]">
-            <img
-              src={clubB}
-              alt="Overlay Left"
-              className="object-contain max-w-full max-h-full"
-              draggable={false}
-            />
-          </div>
+            <div className="w-[100px] h-[100px] flex justify-center items-center ml-[25px] mt-[-10px]">
+              <img
+                src={clubB}
+                alt="Overlay Left"
+                className="object-contain max-w-full max-h-full filter grayscale"
+                draggable={false}
+              />
+            </div>
           )}
         </div>
 
+        {/* Jam */}
+        <div className="relative z-50 flex flex-col justify-center items-center gap-6 w-full max-w-400">
+          <p
+            className="text-[30px] font-bold uppercase mt-[10px] text-white"
+            style={{
+              textShadow: "0 0 5px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.7)"
+            }}
+          >
+            {jam}
+          </p>
+        </div>
+
+        {/* Stadion */}
+        <div className="relative z-50 flex flex-col justify-center items-center gap-6 w-full mt-[-20px] max-w-400">
+          <p
+            className="text-[30px] font-bold uppercase mt-[10px] text-white"
+            style={{
+              textShadow: "0 0 5px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.7)"
+            }}
+          >
+            {stadion}
+          </p>
+        </div>
         
           {/* Footer */}
-<div className="absolute bottom-12 w-full z-50 flex justify-center">
-  <p className="text-white text-[22px] font-bold tracking-wide">
-    centrafootball
-  </p>
-</div>
+          <div className="absolute bottom-12 w-full z-50 flex justify-center">
+            <p className="text-white text-[22px] font-bold tracking-wide">
+              centrafootball
+            </p>
+          </div>
 
       </div>
     </main>

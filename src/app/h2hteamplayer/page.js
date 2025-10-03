@@ -117,7 +117,7 @@ const handleLogoSelect = (value) => {
           />
         </div>
       </div>
-
+      
       <div>
         <p className="mb-1">Club</p>
           {/* Dropdown Logo Klub A */}
@@ -248,7 +248,7 @@ const handleLogoSelect = (value) => {
 
         {/* Player A */}
         {playerA && (
-          <div className="absolute top-60 left-0 h-[480px] w-[270px] z-10 overflow-hidden">
+          <div className="absolute top-60 left-0 h-[480px] w-[270px] z-20 overflow-hidden">
             <img
               src={playerA}
               alt="Player A"
@@ -259,7 +259,7 @@ const handleLogoSelect = (value) => {
 
         {/* Player B */}
         {playerB && (
-          <div className="absolute top-60 right-0 h-[480px] w-[270px] z-10 overflow-hidden">
+          <div className="absolute top-60 right-0 h-[480px] w-[270px] z-20 overflow-hidden">
             <img
               src={playerB}
               alt="Player B"
@@ -377,7 +377,12 @@ const handleLogoSelect = (value) => {
           )}
         </div>
 
-        
+        <img
+          src="/assets/std22.png"
+          alt="Base"
+          className="absolute inset-0 w-full h-full object-cover z-10"
+        />
+
           {/* Footer */}
 <div className="absolute bottom-12 w-full z-20 flex justify-center">
   <p className="text-white text-[22px] font-bold tracking-wide">
