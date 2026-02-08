@@ -5,6 +5,9 @@ const overlayOptions = {
   jerman : ["1.FC Heidenheim 1846.png", "1.FC Köln.png", "1.FC Union Berlin.png", "1.FSV Mainz 05.png", "Bayer 04 Leverkusen.png", "Bayern Munich.png", "Borussia Dortmund.png", "Borussia Mönchengladbach.png", "Eintracht Frankfurt.png", "FC Augsburg.png", "FC St. Pauli.png", "Hamburger SV.png", "RB Leipzig.png", "SC Freiburg.png", "SV Werder Bremen.png", "TSG 1899 Hoffenheim.png", "VfB Stuttgart.png", "VfL Wolfsburg.png"],
   france : ["AJ Auxerre.png", "Angers SCO.png", "AS Monaco.png", "FC Lorient.png", "FC Metz.png", "FC Nantes.png", "FC Toulouse.png", "Le Havre AC.png", "LOSC Lille.png", "OGC Nice.png", "Olympique Lyon.png", "Olympique Marseille.png", "Paris FC.png", "Paris Saint-Germain.png", "RC Lens.png", "RC Strasbourg Alsace.png", "Stade Brestois 29.png", "Stade Rennais FC.png"],
   belanda : ["Ajax Amsterdam.png", "Excelsior Rotterdam.png", "FC Groningen.png", "FC Utrecht.png", "FC Volendam.png", "FC Nantes.png", "Feyenoord Rotterdam.png", "Fortuna Sittard.png", "Go Ahead Eagles.png", "Heracles Almelo.png", "NAC Breda.png", "NEC Nijmegen.png", "PEC Zwolle.png", "PSV Eindhoven.png", "SC Heerenveen.png", "SC Telstar.png", "Sparta Rotterdam.png", "Twente Enschede FC.png"],
+  indonesia: ["Arema.png", "Bali-united.png", "Bayangkara.png", "borneo-fc.png", "dewa-united.png", "madura-united.png", "malut-united.png", "persebaya.png", "persib.png", "persija.png", "persijap.png", "persik.png", "persis.png", "persita.png", "psbs.png", "psim.png", "psm.png", "semen-padang.png"],
+  arab: ["al-ahli.png", "al-ettifaq.png", "al-fateh.png", "al-fayha.png", "al-hazem.png", "al-hilal.png", "al-ittihad.png", "al-khaleej.png", "al-kholood.png", "al-najma.png", "al-nassr.png", "al-okhdood.png", "al-qadsiah.png", "al-riyadh.png", "al-shabab.png", "al-taawoun.png", "damac.png", "neom.png",
+  ],
 };
 
 export default overlayOptions;
