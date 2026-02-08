@@ -13,6 +13,7 @@ export default function MenuPage() {
     { name: "Update Skor Negara", path: "/scorenegara" },
     { name: "Quotes", path: "/quotes" },
     { name: "Informasi", path: "/info" },
+    { name: "Transfer", path: "/transfer" },
     { name: "Statistik Player", path: "/statistik" },
     { name: "Klasmen", path: "/klasmen" },
     { name: "Daftar Individual Stats (5)", path: "/individual" },

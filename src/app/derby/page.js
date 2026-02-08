@@ -105,7 +105,7 @@ const handleLogoSelect = (value) => {
      
       {/* Input Kategori */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2">Kategori (Top Save/Pass/Skor)</p>
+        <p className="mb-2">Kategori (Big match, derby)</p>
         <input
           type="text"
           value={kategori}
