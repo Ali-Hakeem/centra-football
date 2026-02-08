@@ -79,19 +79,18 @@ export default function Preview() {
           )}
         </div>
 
-        <div className="relative items-center left-38 justify-center z-50 flex flex-col gap-6 w-full max-w-[750px]">
+        <div className="relative items-center left-40 justify-center z-50 flex flex-col gap-6 w-full max-w-[750px]">
             <p
-              className="text-[50px] font-bold uppercase mt-[580px] text-white"
+              className="text-[50px] font-bold uppercase mt-[600px] text-white"
               style={{
                 textShadow: "0 0 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.7)"
               }}
             >
               DONE DEAL!
-              {/*HERE WE GO!!*/}
             </p>
           </div>
 
-        {/* panah */}
+        {/* ALL */}
         <div className="absolute bottom-40 left-0 w-full flex flex-col items-center text-white font-bold">
           <div className="p-1" style={{ marginBottom: "-150px", marginTop: "50px", marginLeft: "100px", marginRight: "100px" }}>
             {overlayImage3 && (
@@ -126,7 +125,7 @@ export default function Preview() {
                       margin: "290px 290px",
                       marginTop: "-100px",
                       userSelect: "none",
-                    }} className="z-30 absolute flex justify-center items-center gap-100 left-120">
+                    }} className="z-30 absolute flex justify-center items-center gap-100 left-100">
                     
                 </div>
             </div>
@@ -149,7 +148,7 @@ export default function Preview() {
           {/* nama player */}
           <div className="relative items-center justify-center z-50 flex flex-col gap-6 w-full max-w-[750px]">
             <p
-              className="text-[80px] font-bold uppercase mt-[0px] text-white"
+              className="text-[80px] font-bold uppercase mt-[-20px] text-white"
               style={{
                 textShadow: "0 0 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.7)"
               }}

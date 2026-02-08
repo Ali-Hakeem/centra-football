@@ -84,6 +84,25 @@ export default function Home() {
           <input type="file" accept="image/*" onChange={(e) => handleFile(e, setBaseImage)} />
         </div>
 
+        <div>
+          <p className="mb-2 font-semibold">Tim 1</p>
+          <select
+            onChange={(e) => setOverlayImage3(`/assets/kompetisi/${e.target.value}`)}
+            className="border px-3 py-2 rounded"
+          >
+            <option value="">-- Pilih Gambar --</option>
+            {Object.entries(overlayKompetisi).map(([liga, teams]) => (
+              <optgroup key={liga} label={liga}>
+                {teams.map((team) => (
+                  <option key={team} value={`${liga}/${team}`}>
+                    {team.replace(".png", "")}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+        </div>
+
         {/* Input Kategori */}
         <div className="mb-4 w-full max-w-xl">
           <p className="mb-2">Nama player</p>
