@@ -86,6 +86,7 @@ export default function Preview() {
                 textShadow: "0 0 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.7)"
               }}
             >
+              DONE DEAL!
               {/*HERE WE GO!!*/}
             </p>
           </div>
