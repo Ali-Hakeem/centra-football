@@ -13,6 +13,9 @@ export default function MenuPage() {
     { name: "Update Skor Negara", path: "/scorenegara" },
     { name: "Quotes", path: "/quotes" },
     { name: "Informasi", path: "/info" },
+    { name: "Informasi V2", path: "/infov2" },
+    { name: "Informasi V3", path: "/infov3" },
+    { name: "Informasi V4", path: "/infov4" },
     { name: "Transfer", path: "/transfer" },
     { name: "Statistik Player", path: "/statistik" },
     { name: "Klasmen", path: "/klasmen" },
@@ -50,6 +53,9 @@ export default function MenuPage() {
             {menu.name}
           </button>
         ))}
+      </div>
+      <div className="mb-[50px]">
+
       </div>
     </main>
   );

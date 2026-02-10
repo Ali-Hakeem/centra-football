@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import overlayOptions from "@/data/overlayOptions";
-import overlayKompetisi from "@/data/overlayKompetisi";
+import overlayKompetisi from "@/data/overlayTransfer";
 
 export default function Home() {
   const router = useRouter();
@@ -87,7 +87,7 @@ export default function Home() {
         <div>
           <p className="mb-2 font-semibold">Tim 1</p>
           <select
-            onChange={(e) => setOverlayImage3(`/assets/kompetisi/${e.target.value}`)}
+            onChange={(e) => setOverlayImage3(`/assets/transfer/${e.target.value}`)}
             className="border px-3 py-2 rounded"
           >
             <option value="">-- Pilih Gambar --</option>
