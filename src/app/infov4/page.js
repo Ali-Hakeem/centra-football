@@ -36,7 +36,7 @@ export default function InfoEditor() {
 
       {/* Input Quotes */}
       <div className="mb-4 w-full max-w-xl">
-        <p className="mb-2 font-semibold">Quotes</p>
+        <p className="mb-2 font-semibold">Quotes (maksimal 3 baris)</p>
         <textarea
           value={quote}
           onChange={(e) => setQuote(e.target.value)}
