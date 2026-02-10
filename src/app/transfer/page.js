@@ -85,7 +85,7 @@ export default function Home() {
         </div>
 
         <div>
-          <p className="mb-2 font-semibold">Tim 1</p>
+          <p className="mb-2 font-semibold">sratus transfer</p>
           <select
             onChange={(e) => setOverlayImage3(`/assets/transfer/${e.target.value}`)}
             className="border px-3 py-2 rounded"
@@ -103,8 +103,10 @@ export default function Home() {
           </select>
         </div>
 
-        {/* Input Kategori */}
-        <div className="mb-4 w-full max-w-xl">
+      </div>
+
+      {/* Input Kategori */}
+      <div className="mb-4 w-full max-w-xl">
           <p className="mb-2">Nama player</p>
           <input
             type="text"
@@ -113,8 +115,6 @@ export default function Home() {
             className="border rounded px-3 py-2 w-full text-black"
           />
         </div>
-
-      </div>
 
       <div className="flex gap-4 mb-6">
         <div>

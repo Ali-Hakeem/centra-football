@@ -90,7 +90,7 @@ export default function Home() {
         </div>
 
         <div>
-          <p className="mb-2 font-semibold">Tim 1</p>
+          <p className="mb-2 font-semibold">kopetisi1</p>
           <select
             onChange={(e) => setOverlayImage3(`/assets/kompetisi/${e.target.value}`)}
             className="border px-3 py-2 rounded"
