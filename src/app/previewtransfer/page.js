@@ -78,13 +78,13 @@ export default function Preview() {
             />
           )}
         </div>
-
+        {/* here we go */}
         <div className="relative items-center left-40 justify-center z-50 flex flex-col gap-6 w-full max-w-[750px]">
               {overlayImage3 && (
               <img
                 src={overlayImage3}
                 alt="Kompetisi"
-                className="w-[180px] h-[auto] object-contain mt-[630px]"
+                className="w-[200px] h-[auto] object-contain mt-[580px]"
               />
             )}
           </div>
@@ -147,7 +147,7 @@ export default function Preview() {
           {/* nama player */}
           <div className="relative items-center justify-center z-50 flex flex-col gap-6 w-full max-w-[750px]">
             <p
-              className="text-[110px] font-bold uppercase mt-[-60px] text-white"
+              className="text-[110px] font-bold uppercase mt-[-40px] text-white"
               style={{
                 textShadow: "0 0 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.7)"
               }}

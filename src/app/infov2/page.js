@@ -83,14 +83,12 @@ export default function InfoEditor() {
             />
 
             <div className="absolute bottom-0 left-0 w-full px-15 text-white flex flex-col items-center mb-65 top-210">
-                <p
-                    className="text-center font-bold"
-                    
-                >
-                  <span className="text-[#ff6508]" style={{ fontSize: "160px", lineHeight: "0.9" }}>{quote}</span><br></br> 
-                  <span style={{ fontSize: "80px", lineHeight: "0.9" }}> {quote2}</span>
+                <p className="text-center font-bold">
+                  <span className="text-[#ff6508]" style={{ fontSize: "140px", lineHeight: "0.9" }}>{quote}</span>
                 </p>
-
+                <p className="text-center font-bold mt-[30px]">
+                  <span style={{ fontSize: "80px", lineHeight: "0.9" }}> {quote2}</span>
+                </p>      
               <div className="absolute justify-center items-center left-120 top-90 mt-5" style={{ fontSize: "22px"}}>
               <p>centrafootball</p>
               </div>
