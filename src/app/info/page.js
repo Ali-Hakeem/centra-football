@@ -16,7 +16,14 @@ export default function InfoEditor() {
     const element = document.getElementById("quote-preview");
     if (!element) return;
 
-    const canvas = await html2canvas(element, { useCORS: true });
+    const canvas = await html2canvas(element, {
+      useCORS: true,
+      scale: window.devicePixelRatio, // WAJIB
+      width: 1080,
+      height: 1350,
+      backgroundColor: null,
+    });
+    
     const dataURL = canvas.toDataURL("image/png");
 
     const link = document.createElement("a");
@@ -66,12 +73,27 @@ export default function InfoEditor() {
 
       {/* Preview */}
         {baseImage && quote && quote2 && (
-        <div
+        
+          <div
             id="quote-preview"
-            className="relative mt-8 w-[1080px] h-[1350px] border bg-white text-black overflow-hidden"
-        >
-            <img src={baseImage} alt="Base" className="absolute inset-0 w-full h-full object-cover" />
+            className="relative mt-8 overflow-hidden"
+            style={{
+              width: "1080px",
+              height: "1350px",
+              backgroundColor: "#000000",
+              color: "#ffffff",
+            }}
+          >
 
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url(${baseImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
             <div className="absolute justify-center items-center gap-12 left-10">
                 <img src="/assets/cf.png" className="w-[120px] h-[120px] object-contain"></img>
             </div>
@@ -82,7 +104,7 @@ export default function InfoEditor() {
             style={{ background: "linear-gradient(to top, rgba(0,0,0,1.2), transparent)" }}
             />
 
-            <div className="absolute bottom-0 left-0 w-full px-15 text-white flex flex-col items-center mb-65 top-180">
+            <div className="absolute bottom-0 left-0 w-full px-15 text-white flex flex-col items-center mb-65 top-200">
                 <p
                     className="text-center italic"
                     style={{ fontSize: "110px", lineHeight: "0.9" }}
@@ -90,7 +112,7 @@ export default function InfoEditor() {
                   <span className="text-[#ff6508]">{quote}</span> {quote2}
                 </p>
 
-              <div className="absolute justify-center items-center left-120 top-120 mt-5" style={{ fontSize: "22px"}}>
+              <div className="absolute justify-center items-center left-120 top-100 mt-5" style={{ fontSize: "22px"}}>
               <p>centrafootball</p>
               </div>
             </div>

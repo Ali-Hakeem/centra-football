@@ -16,7 +16,14 @@ export default function QuotesEditor() {
     const element = document.getElementById("quote-preview");
     if (!element) return;
 
-    const canvas = await html2canvas(element, { useCORS: true });
+    const canvas = await html2canvas(element, {
+      useCORS: true,
+      scale: window.devicePixelRatio, // WAJIB
+      width: 1080,
+      height: 1350,
+      backgroundColor: null,
+    });
+    
     const dataURL = canvas.toDataURL("image/png");
 
     const link = document.createElement("a");
@@ -67,12 +74,27 @@ export default function QuotesEditor() {
 
       {/* Preview */}
         {baseImage && quote && (
+        
         <div
-            id="quote-preview"
-            className="relative mt-8 w-[1080px] h-[1350px] border bg-white text-black overflow-hidden"
+          id="quote-preview"
+          className="relative mt-8 overflow-hidden"
+          style={{
+            width: "1080px",
+            height: "1350px",
+            backgroundColor: "#000000",
+            color: "#ffffff",
+          }}
         >
-            <img src={baseImage} alt="Base" className="absolute inset-0 w-full h-full object-cover" />
 
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url(${baseImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
             <div className="absolute justify-center items-center gap-12 left-10">
                 <img src="/assets/cf.png" className="w-[120px] h-[120px] object-contain"></img>
             </div>

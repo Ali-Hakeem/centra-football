@@ -13,17 +13,19 @@ export default function Preview() {
   }, []);
 
   const handleDownload = async () => {
-    if (!previewRef.current) return;
-
     const canvas = await html2canvas(previewRef.current, {
       useCORS: true,
-      scale: 2, // increase resolution
+      scale: window.devicePixelRatio, // WAJIB
+      width: 1080,
+      height: 1080,
+      backgroundColor: null,
     });
+  
     const link = document.createElement("a");
-    link.download = "previewuecl.png";
+    link.download = "ig-feed.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
-  };
+  };  
 
   if (!data)
     return <p className="p-10">Belum ada data. Silakan isi form dulu.</p>;
@@ -46,13 +48,18 @@ export default function Preview() {
 
       <div
         ref={previewRef}
-        className="relative w-[1080px] h-[1080px] border overflow-hidden bg-white"
+        className="relative border overflow-hidden bg-white"
+        style={{ width: 1080, height: 1080 }}
       >
         {baseImage && (
-          <img
-            src={baseImage}
-            alt="Base"
-            className="absolute inset-0 w-full h-full object-cover"
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${baseImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
           />
         )}
 

@@ -57,7 +57,14 @@ export default function RekorPage() {
     const element = document.getElementById("rekor-preview");
     if (!element) return;
 
-    const canvas = await html2canvas(element, { useCORS: true });
+    const canvas = await html2canvas(element, {
+      useCORS: true,
+      scale: window.devicePixelRatio, // WAJIB
+      width: 1080,
+      height: 1350,
+      backgroundColor: null,
+    });
+    
     const dataURL = canvas.toDataURL("image/png");
 
     const link = document.createElement("a");
@@ -183,17 +190,25 @@ export default function RekorPage() {
       {/* Preview */}
       {baseImage && (
         <div
-          id="rekor-preview"
-          className="relative mt-8 w-[1080px] h-[1350px] flex flex-col items-center p-10 overflow-hidden"
-          style={{ backgroundColor: "#000000", color: "#ffffff" }}
-        >
+        id="rekor-preview"
+        className="relative mt-8 flex flex-col items-center p-10  overflow-hidden"
+        style={{
+          width: "1080px",
+          height: "1350px",
+          backgroundColor: "#000000",
+          color: "#ffffff",
+        }}
+      >
           {/* Background */}
-          <img
-            src={baseImage}
-            alt="Base"
-            className="absolute inset-0 w-full h-full object-cover"
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${baseImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
           />
-
           {/* Overlay hitam transparan */}
           <div
             style={{

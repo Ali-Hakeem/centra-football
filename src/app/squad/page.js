@@ -171,16 +171,27 @@ export default function SquadPage() {
 
       {/* Preview */}
       {baseImage && (
-        <div
-          id="squad-preview"
-          className="relative mt-5 w-[1080px] h-[1350px] flex flex-col items-start p-10 overflow-hidden"
-          style={{ backgroundColor: "#000" }}
-        >
+        
+      <div
+        id="squad-preview"
+        className="relative mt-5 flex flex-col items-start p-10 overflow-hidden"
+        style={{
+          width: "1080px",
+          height: "1350px",
+          backgroundColor: "#000000",
+          color: "#ffffff",
+        }}
+      >
+
           {/* Background */}
-          <img
-            src={baseImage}
-            alt="Base"
-            className="absolute inset-0 w-full h-full object-cover"
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${baseImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
           />
 
           {/* Overlay */}
