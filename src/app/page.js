@@ -12,6 +12,8 @@ export default function MenuPage() {
     { name: "Update Skor UECL", path: "/scoreuecl" },
     { name: "Update Skor Negara", path: "/scorenegara" },
     { name: "Quotes", path: "/quotes" },
+    { name: "Quotes 2", path: "/quotes2" },
+    { name: "Quotes 3", path: "/quotes3" },
     { name: "Informasi", path: "/info" },
     { name: "Informasi V2", path: "/infov2" },
     { name: "Informasi V3", path: "/infov3" },
