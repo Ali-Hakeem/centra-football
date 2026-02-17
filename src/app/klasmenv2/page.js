@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import html2canvas from "html2canvas";
+import overlayOptions from "@/data/overlayOptions";
 
 // ✅ Hook untuk simpan ke localStorage
 function usePersistedState(key, defaultValue) {
@@ -26,7 +27,7 @@ export default function DaftarPage() {
   const [kategori, setKategori] = usePersistedState("daftar_kategori", "");
   const [season, setSeason] = usePersistedState("daftar_season", "");
   const [players, setPlayers] = usePersistedState("daftar_players", [
-    { nama: "", main: "", jumlah: "" },
+    { nama: "", main: "", win: "", draw: "", lose: "", jumlah: "", logo: null },
   ]);
 
   const handleBaseUpload = (e) => {
@@ -43,7 +44,13 @@ export default function DaftarPage() {
   };
 
   const addPlayer = () => {
-    setPlayers([...players, { nama: "", main:"", jumlah: "" }]);
+    setPlayers([...players, { nama: "", main:"", win: "", draw: "", lose: "", jumlah: "", logo: null }]);
+  };
+
+  const handleLogoSelect = (index, value) => {
+    const updated = [...players];
+    updated[index].logo = value ? `/assets/${value}` : null;
+    setPlayers(updated);
   };
 
   const removePlayer = (index) => {
@@ -115,7 +122,7 @@ export default function DaftarPage() {
 
       {/* Input Pemain */}
       <div className="mb-6 w-full max-w-xl">
-        <p className="mb-2">Pemain</p>
+        <p className="mb-2">Klub</p>
         {players.map((player, index) => (
           <div key={index} className="flex gap-2 mb-4">
             <input
@@ -128,6 +135,23 @@ export default function DaftarPage() {
               className="border rounded px-3 py-2 w-1/2"
               style={{ color: "#000000" }}
             />
+            {/* Dropdown Logo */}
+            <select
+              onChange={(e) => handleLogoSelect(index, e.target.value)}
+              className="border px-3 py-2 rounded text-black"
+              value={player.logo ? player.logo.replace("/assets/", "") : ""}
+            >
+              <option value="">-- Pilih Logo --</option>
+              {Object.entries(overlayOptions).map(([liga, teams]) => (
+                <optgroup key={liga} label={liga}>
+                  {teams.map((team) => (
+                    <option key={team} value={`${liga}/${team}`}>
+                      {team.replace(".png", "")}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
             <input
               type="text"
               placeholder="main"
@@ -138,6 +162,40 @@ export default function DaftarPage() {
               className="border rounded px-3 py-2 w-1/2"
               style={{ color: "#000000" }}
             />
+            
+            <input
+              type="text"
+              placeholder="win"
+              value={player.win}
+              onChange={(e) =>
+                handlePlayerChange(index, "win", e.target.value)
+              }
+              className="border rounded px-3 py-2 w-1/2"
+              style={{ color: "#000000" }}
+            />
+
+            <input
+              type="text"
+              placeholder="draw"
+              value={player.draw}
+              onChange={(e) =>
+                handlePlayerChange(index, "draw", e.target.value)
+              }
+              className="border rounded px-3 py-2 w-1/2"
+              style={{ color: "#000000" }}
+            />
+
+            <input
+              type="text"
+              placeholder="lose"
+              value={player.lose}
+              onChange={(e) =>
+                handlePlayerChange(index, "lose", e.target.value)
+              }
+              className="border rounded px-3 py-2 w-1/2"
+              style={{ color: "#000000" }}
+            />
+
             <input
               type="text"
               placeholder="poin"
@@ -219,7 +277,7 @@ export default function DaftarPage() {
             <p className="text-[70px] font-bold uppercase mt-[-20px]">
               {kategori} {liga}
             </p>
-            <p className="text-[50px] mt-[-50px] mb-[30px] text-[#ff6508]">{season}</p>
+            <p className="text-[50px] mt-[-50px] mb-[30px] text-[#77ff08]">{season}</p>
           </div>
 
           <div
@@ -233,7 +291,7 @@ export default function DaftarPage() {
                 borderSpacing: 0,
                 color: "#ffffff",
                 border: "3px solid #ffffff",
-                borderRadius: "30px",
+                borderRadius: "25px",
                 overflow: "hidden",
               }}
             >
@@ -249,7 +307,7 @@ export default function DaftarPage() {
                       textAlign: "center",
                     }}
                   >
-                    <p className="mb-5 mt-[-3px]">No</p>
+                    <p className="mb-5 mt-[-3px]"></p>
                   </th>
 
                   <th
@@ -277,6 +335,46 @@ export default function DaftarPage() {
                   >
                     <p className="mb-5 mt-[-3px]">P</p>
                   </th>
+
+                  <th
+                    style={{
+                      width: "25%",
+                      borderBottom: "3px solid #ffffff",
+                      padding: "3px 20px",
+                      fontSize: "30px",
+                      fontWeight: "bold",
+                      textAlign: "right",
+                    }}
+                  >
+                    <p className="mb-5 mt-[-3px]">W</p>
+                  </th>
+
+                  <th
+                    style={{
+                      width: "25%",
+                      borderBottom: "3px solid #ffffff",
+                      padding: "3px 20px",
+                      fontSize: "30px",
+                      fontWeight: "bold",
+                      textAlign: "right",
+                    }}
+                  >
+                    <p className="mb-5 mt-[-3px]">D</p>
+                  </th>
+
+                  <th
+                    style={{
+                      width: "25%",
+                      borderBottom: "3px solid #ffffff",
+                      padding: "3px 20px",
+                      fontSize: "30px",
+                      fontWeight: "bold",
+                      textAlign: "right",
+                    }}
+                  >
+                    <p className="mb-5 mt-[-3px]">L</p>
+                  </th>
+
                   <th
                     style={{
                       width: "25%",
@@ -292,73 +390,122 @@ export default function DaftarPage() {
                 </tr>
               </thead>
               <tbody>
-                {players.map((p, i) => (
-                  <tr
-                  key={i}
-                  style={{
-                    borderBottom:
-                      i !== players.length - 1
-                        ? "3px solid #ffffff"
-                        : "none",
-                  }}
-                >
-                    {/* Nomor */}
-                    <td
-                      style={{
-                        width: "5%",
-                        borderBottom: "3px solid #ffffff",
-                        padding: "2px 0",
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                        textAlign: "center",
-                      }}
-                    >
-                      <p className="mb-5 mt-[-3px]">{i + 1}</p>
-                    </td>
+                {players.map((p, i) => {
+                  const isLast = i === players.length - 1;
 
-                    {/* Nama */}
-                    <td
-                      style={{
-                        borderBottom: "3px solid #ffffff",
-                        width: "60%",
-                        padding: "2px 20px",
-                        fontSize: "30px",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      <p className="mb-5 mt-[-3px]">{p.nama}</p>
-                    </td>
+                  return (
+                    <tr key={i}>
+                      {/* Nomor */}
+                      <td
+                        style={{
+                          width: "5%",
+                          borderBottom: !isLast ? "3px solid #ffffff" : "none",
+                          padding: "2px 0",
+                          fontSize: "20px",
+                          fontWeight: "bold",
+                          textAlign: "center",
+                        }}
+                      >
+                        <p className="mb-5 mt-[-3px]">{i + 1}</p>
+                      </td>
 
-                    {/* main */}
-                    <td
-                      style={{
-                        width: "10%",
-                        borderBottom: "3px solid #ffffff",
-                        padding: "2px 20px",
-                        fontSize: "30px",
-                        fontWeight: "bold",
-                        textAlign: "right",
-                      }}
-                    >
-                      <p className="mb-5 mt-[-3px]">{p.main}</p>
-                    </td>
+                      {/* Nama */}
+                      <td
+                        style={{
+                          width: "60%",
+                          borderBottom: !isLast ? "3px solid #ffffff" : "none",
+                          padding: "2px 20px",
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {/* Kiri: Nomor, Logo, Nama */}
+                        <div className="flex items-center gap-5 mb-5 mt-[-3px]">
+                          {p.logo && (
+                            <img
+                              src={p.logo}
+                              alt="klub"
+                              className="w-[27px] h-[35px] object-contain mb-[-30px]"
+                            />
+                          )}
+                          <span>{p.nama}</span>
+                        </div>
+                      </td>
 
-                    {/* Jumlah */}
-                    <td
-                      style={{
-                        width: "10%",
-                        borderBottom: "3px solid #ffffff",
-                        padding: "2px 20px",
-                        fontSize: "30px",
-                        fontWeight: "bold",
-                        textAlign: "right",
-                      }}
-                    >
-                      <p className="mb-5 mt-[-3px]">{p.jumlah}</p>
-                    </td>
-                  </tr>
-                ))}
+                      {/* Main */}
+                      <td
+                        style={{
+                          width: "10%",
+                          borderBottom: !isLast ? "3px solid #ffffff" : "none",
+                          padding: "2px 20px",
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                          textAlign: "right",
+                        }}
+                      >
+                        <p className="mb-5 mt-[-3px]">{p.main}</p>
+                      </td>
+
+                      {/* Main */}
+                      <td
+                        style={{
+                          width: "10%",
+                          borderBottom: !isLast ? "3px solid #ffffff" : "none",
+                          padding: "2px 20px",
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                          textAlign: "right",
+                        }}
+                      >
+                        <p className="mb-5 mt-[-3px]">{p.win}</p>
+                      </td>
+
+                        {/* Main */}
+                      <td
+                        style={{
+                          width: "10%",
+                          borderBottom: !isLast ? "3px solid #ffffff" : "none",
+                          padding: "2px 20px",
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                          textAlign: "right",
+                        }}
+                      >
+                        <p className="mb-5 mt-[-3px]">{p.draw}</p>
+                      </td>
+
+                      {/* Main */}
+                      <td
+                        style={{
+                          width: "10%",
+                          borderBottom: !isLast ? "3px solid #ffffff" : "none",
+                          padding: "2px 20px",
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                          textAlign: "right",
+                        }}
+                      >
+                        <p className="mb-5 mt-[-3px]">{p.lose}</p>
+                      </td>
+
+                      {/* Jumlah */}
+                      <td
+                        style={{
+                          width: "10%",
+                          borderBottom: !isLast ? "3px solid #ffffff" : "none",
+                          padding: "2px 20px",
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                          textAlign: "right",
+                        }}
+                      >
+                        <p className="mb-5 mt-[-3px]" style={{ color: "#77ff08"}}>{p.jumlah}</p>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
+
             </table>
           </div>
 
