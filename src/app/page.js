@@ -21,6 +21,7 @@ export default function MenuPage() {
     { name: "Transfer", path: "/transfer" },
     { name: "Statistik Player", path: "/statistik" },
     { name: "Klasmen", path: "/klasmen" },
+    { name: "Klasmen v2", path: "/klasmenv2" },
     { name: "Daftar Individual Stats (5)", path: "/individual" },
     { name: "Squad", path: "/squad" },
     { name: "Daftar Individual Stats Unlimited", path: "/daftar" },
